@@ -1,0 +1,78 @@
+.vd-popover--with-list {
+  .vd-popover-content {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // @note It is important that the gap at the top/bottom of the list is implemented using margin as the implementation
+  // of overflow, scrolling, etc for autocomplete suggestions list relies on this
+  &.vd-popover-tether-element-attached-top.vd-popover-tether-target-attached-bottom {
+    .vd-popover-content {
+      margin-top: $vd-popover-list-spacing;
+    }
+
+    .vd-popover-list-empty,
+    .vd-popover-list-header {
+      margin-top: -$vd-popover-list-spacing;
+    }
+  }
+
+  &.vd-popover-tether-element-attached-bottom.vd-popover-tether-target-attached-top {
+    .vd-popover-content {
+      margin-bottom: $vd-popover-list-spacing;
+    }
+
+    .vd-popover-list-empty {
+      margin-bottom: -$vd-popover-list-spacing;
+    }
+  }
+}
+
+.vd-popover-list {
+  box-sizing: border-box;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vd-popover-list-group-header {
+  @include vd-popover-list-item();
+  @include vd-text(signpost);
+  position: relative;
+
+  &::after {
+    content: '';
+    border-bottom: vd-border(framing, 2px);
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: $vd-popover-spacing;
+    left: $vd-popover-spacing;
+  }
+}
+
+.vd-popover-list-item {
+  @include vd-popover-list-item();
+
+  &.vd-popover-list-item--active,
+  &:hover {
+    background-color: vd-colour-highlight(go, box);
+  }
+}
+
+.vd-popover-list-empty {
+  @include vd-popover-list-item($vd-popover-spacing);
+}
+
+.vd-popover-list-header {
+  &:empty {
+    display: none;
+  }
+
+  @include vd-popover-list-item();
+}
+
+.vd-popover-list-footer {
+  @include vd-popover-list-item();
+}

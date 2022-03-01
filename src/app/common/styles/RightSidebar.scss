@@ -1,0 +1,94 @@
+$vd-header-height: 50px;
+$vd-header-bgcolor: #3a4953;
+$vd-font-lato: lato, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+
+.dialog-drawer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dialog-drawer-top-banner {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: $vd-header-height;
+  background: $vd-header-bgcolor;
+  color: #fff;
+  font-size: 16px;
+  font-family: $vd-font-lato;
+  line-height: 16px;
+}
+
+.dialog-drawer-header {
+
+}
+
+.user-dialog-current-user {
+  border-bottom: 1px solid #becbcf;
+  background: #f0f4f4;
+  color: #3a4953;
+  line-height: initial;
+}
+
+.user-dialog-current-user--with-switch-user-button {
+padding-top:0;
+}
+
+.user-display-name {
+overflow:hidden;
+text-overflow:ellipsis;
+width:100%;
+}
+
+.user-account-type {
+text-transform:capitalize;
+margin-right:10px;
+font-weight:700;
+}
+
+.user-account-email {
+word-wrap:break-word;
+overflow:hidden;
+color:#000;
+}
+
+.dialog-drawer-content {
+display:flex;
+flex-direction:column;
+flex:1;
+overflow:auto;
+}
+
+.user-switch-button {
+  margin: 0;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+.user-dialog-current-user--with-switch-user-button {
+  padding-top: 0px;
+}
+
+.user-switching-list-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.user-switching-list {
+  overflow-y: auto;
+  margin: 0 -7px;
+  padding: 0;
+
+  .vd-user-badge {
+      display: block;
+      margin: 7px;
+      height: calc(100% - 14px);
+
+      .vd-id-badge {
+          min-height: 100%;
+      }
+  }
+}

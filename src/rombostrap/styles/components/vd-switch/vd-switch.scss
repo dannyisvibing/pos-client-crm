@@ -1,0 +1,70 @@
+.vd-switch {
+  display: inline-block;
+  position: relative;
+}
+
+.vd-switch-input { @extend %vd-invisible-checkbox-input; }
+
+.vd-switch-track {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: vd-grid-unit(15);
+  height: vd-grid-unit(9);
+  border-radius: vd-grid-unit(9);
+  background-color: vd-colour(keyline);
+  transition: background-color $vd-time-m ease-in-out;
+
+  .vd-switch--small & {
+    width: vd-grid-unit(10);
+    height: vd-grid-unit(5);
+  }
+}
+
+.vd-switch-icon {
+  display: inline-block;
+  position: absolute;
+  color: vd-colour(text, dark);
+  top: 10px;
+  left: 10px;
+  opacity: 0;
+  transition: opacity $vd-time-m ease-in-out;
+
+  .vd-switch--small & {
+    left: 4px;
+    top: 4px;
+    font-size: $vd-font-size--body-sub-content;
+  }
+}
+
+.vd-switch-track-knob {
+  float: left;
+  border-radius: inherit;
+  background-color: vd-colour(box);
+  pointer-events: none;
+  width: vd-grid-unit(7);
+  height: vd-grid-unit(7);
+  margin-top: vd-grid-unit(1);
+  margin-left: vd-grid-unit(1);
+  transition: transform $vd-time-m cubic-bezier(0.54, 1.85, 0.5, 1);
+
+  .vd-switch--small & {
+    width: vd-grid-unit(4);
+    height: vd-grid-unit(4);
+    margin-top: vd-grid-unit(0.5);
+    margin-left: vd-grid-unit(0.5);
+  }
+}
+
+// Checked
+.vd-switch-input:checked + .vd-switch-track {
+  background-color: vd-colour(do);
+
+  .vd-switch-icon { opacity: 1; }
+
+  .vd-switch-track-knob {
+    transform: translate3d(25px, 0, 0);
+
+    .vd-switch--small & { transform: translate3d(20px, 0, 0); }
+  }
+}

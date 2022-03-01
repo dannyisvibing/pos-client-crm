@@ -1,0 +1,239 @@
+.register-closure {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  .register-closure-content {
+      width: 80%;
+      .register-closure-header {
+          margin-top: 20px;
+      }
+
+      .register-detail-summary-header {
+          margin-top: 32px;
+          padding-bottom: 4px;
+          border-bottom: 1px solid lightgrey;
+      }
+
+      .register-detail-info {
+          display: flex;
+          justify-content: space-between;
+      }
+
+      .register-detail-table {
+          margin-top: 32px;
+
+          .register-detail-subtable {
+              padding: 32px;
+
+              .subtable-top-content {
+                  display: flex;
+
+                  .cashmovement {
+                      width: 300px;
+                  }
+
+                  .cashmovement-detail {
+                      flex: 1;
+                      .cashmovement-header {
+                          display: flex;
+                          border-bottom: 1px solid lightgrey;
+
+                          >div {
+                              width: 100px;
+                          }
+                      }
+
+                      .cashmovement-data {
+                          display: flex;
+
+                          >div {
+                              width: 100px;
+                          }
+                      }
+                  }
+              }
+
+              .subtable-bottom-content {
+                  margin-top: 32px;
+                  display: flex;
+                  .title {
+                      width: 50%;
+                  }
+              }
+          }
+      }
+
+      .register-detail-note {
+          margin-top: 16px;
+      }
+
+      .register-close-btn {
+          margin-top: 16px;
+      }
+  }
+}
+
+.wr-number-colour-positive {
+  color: vd-colour(do);
+}
+
+.wr-number-colour-negative {
+  color: vd-colour(no);
+}
+
+.register-info {
+  display: block;
+  word-break: break-word;
+  border-bottom: 1px solid #becbcf;
+  padding: 10px;
+}
+
+.register-info-popover-trigger {
+  padding-left: 20px;
+  margin-left: -20px;
+}
+
+.register-info-outlet-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wr-register-closure-info-container {
+  flex-shrink: 0;
+}
+
+.wr-register-closure-info-section {
+  margin-bottom: 30px;
+}
+
+.wr-register-closure-summary-header {
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 5px;
+  text-align: left;
+}
+
+.wr-register-closed-image {
+  width: 200px;
+}
+
+img {
+  &.wr-register-closed-image {
+      max-width: 100%;
+      height: auto;
+      display: inline-block;
+      vertical-align: middle;
+  }
+}
+
+.register-closure-info-fields {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  border-top: 1px solid #BECBCF;
+
+  .wr-info-field {
+      flex: 0 1 25%;
+  }
+}
+
+.wr-closure-summary-table-column {
+  width: 200px;
+}
+
+.wr-closure-summary-table-counted-read-only {
+  font-size: 15px;
+  padding-right: 13px;
+}
+
+.wr-closure-summary-totals {
+  background-color: #fff;
+  border-top: 2px solid #becbcf;
+}
+
+.wr-closure-summary-table-input-field {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .wr-closure-summary-table-field-error-icon {
+      color: vd-colour(no)
+  }
+}
+
+.wr-data-table-cell--number {
+  text-align: right;
+  padding-top: 5px!important;
+  padding-bottom: 5px!important;
+}
+
+.open-register-panel-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 48px;
+  overflow: auto;
+}
+
+.open-register-panel-container--fill {
+  flex: 1;
+}
+
+.open-register-panel-container--boxed {
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.open-register-panel {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.open-register-panel-header {
+  margin-top: 48px;
+}
+
+.open-register-panel-button {
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+
+.wr-info-fields {
+  margin-left: -5px;
+  margin-right: -5px;
+  display: flex;
+
+  .wr-info-field {
+      padding: 0 5px;
+      flex: 1;
+  }
+}
+
+.wr-info-fields--center {
+  justify-content: center;
+  text-align: center;
+}
+
+.wr-info-fields--large {
+  .wr-info-field-value {
+      font-size: 24px;
+  }
+}
+
+.wr-info-field {
+  display: block;
+  min-width: 0;
+  word-wrap: break-word;
+  margin: 5px 0;
+}
+
+.wr-info-field-label {
+  color: #3A4953;
+  font-size: 14px;
+}
+
+.wr-info-field-value {
+  font-size: 15px;
+}

@@ -1,0 +1,45 @@
+$vd-select-caret-width: 5px;
+$vd-select-caret-position: 13px;
+
+$vd-select-input-group-focused-zindex: $vd-z-index-content-base + 3;
+$vd-select-input-group-carets-zindex: $vd-select-input-group-focused-zindex + 1;
+$vd-select-input-group-with-error-zindex: $vd-select-input-group-focused-zindex - 1;
+
+@mixin vd-select-carets() {
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+
+    position: absolute;
+    right: $vd-select-caret-position;
+    z-index: $vd-select-input-group-carets-zindex;
+    width: 0;
+    height: 0;
+
+    border-left: $vd-select-caret-width solid transparent;
+    border-right: $vd-select-caret-width solid transparent;
+    border-top-color: currentColor;
+    border-bottom-color: currentColor;
+    pointer-events: none;
+  }
+
+  &::before {
+    border-bottom: $vd-select-caret-width solid;
+    top: $vd-select-caret-position;
+  }
+
+  &::after {
+    border-top: $vd-select-caret-width solid;
+    bottom: $vd-select-caret-position;
+  }
+}
+
+@mixin vd-select() {
+  @include vd-input-text();
+  @include vd-input-box-model();
+  @include vd-input-states();
+  appearance: none;
+  padding-right: 3 * $vd-input-padding;
+}
+

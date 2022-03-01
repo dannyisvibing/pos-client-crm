@@ -1,0 +1,94 @@
+// =================================== Responsive Grid =================================== //
+
+// Grid Settings
+$vd-grid-columns: 12 !default;
+$vd-grid-block-max: 8 !default;
+
+// Optional Grid Gutters; see vd-grid.scss
+$vd-grid-row-gutter-large: 24px;
+
+// Generates columns for the grid.
+//
+// @mixin vd-grid-columns
+//
+// @param {String} $breakpoint - the breakpoint size to attach to the column.
+//
+@mixin vd-grid-columns ($breakpoint) {
+  @for $i from 1 through $vd-grid-columns {
+    $_vd-column-width: percentage($i / $vd-grid-columns);
+
+    .vd-g-#{$breakpoint}-#{$i} {
+      flex: 0 0 $_vd-column-width;
+      max-width: $_vd-column-width;
+    }
+  }
+}
+
+// Allow's the size of columns to be defined on the parent row. vd-g-#{$breakpoint}-up-#{$i}, where
+// {breakpoint} can be s, m or l and {i} is the number of columns to display per row.
+//
+// @mixin vd-grid-block-columns
+//
+// @param {String} $breakpoint - the breakpoint size to attach to the column.
+//
+@mixin vd-grid-block-columns ($breakpoint) {
+  @for $i from 1 through $vd-grid-block-max {
+    .vd-g-#{$breakpoint}-up-#{$i} {
+      flex-wrap: wrap;
+
+      > .vd-g-col {
+        $_vd-block-column-width: percentage(1 / $i);
+
+        flex: 0 0 $_vd-block-column-width;
+        max-width: $_vd-block-column-width;
+      }
+    }
+  }
+}
+
+// Shortcut to generate columns and block columns.
+//
+// @mixin vd-build-grid-columns
+//
+// @param {String} $breakpoint - the breakpoint size to attach to the column.
+//
+@mixin vd-build-grid-columns ($breakpoint) {
+  @include vd-grid-columns($breakpoint);
+  @include vd-grid-block-columns($breakpoint);
+}
+
+// Build it and they will come.
+//
+// @mixin vd-build-grid.
+//
+@mixin vd-build-grid () {
+  .vd-g-row {
+    max-width: $vd-section-wrap-max-width;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: row wrap;
+
+    // Nested Row's
+    & & {
+      max-width: none;
+    }
+  }
+
+  .vd-g-col {
+    flex: 1 1 0px;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  // Build the columns
+  @include vd-build-grid-columns('s');
+
+  @include vd-viewport-media-min(medium) {
+    @include vd-build-grid-columns('m');
+  }
+
+  @include vd-viewport-media-min(large) {
+    @include vd-build-grid-columns('l');
+  }
+}

@@ -1,0 +1,162 @@
+
+.vd-quick-keys {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: lato,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    min-width: 0;
+}
+
+.vd-quick-keys {
+    user-select: none;
+}
+
+.vd-quick-key-grid {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.vd-quick-key-page {
+    flex-shrink: 0;
+}
+
+.vd-quick-key-page, .vd-quick-key-page-column {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.vd-quick-key-page-column {
+    flex-direction: column;
+    flex: 1;
+    padding: 0 4px;
+    min-width: 0;
+
+    &:first-child {
+        padding-left: 2px;
+    }
+
+    &:last-child {
+        padding-right: 2px;
+    }
+}
+
+.vd-quick-key {
+    display: flex;
+    border-radius: 3px;
+    min-width: 75px;
+    width: 100%;
+    height: 90px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 4px 0;
+    position: relative;
+    box-shadow: 1px 1px 0 0 rgba(0,0,0,.1);
+}
+
+.vd-quick-key--yellow {
+    background-color: #F2C17B;
+}
+
+.vd-quick-key--red {
+    background-color: #d77173;
+}
+
+.vd-quick-key--orange {
+    background-color: #f49b8c;
+}
+
+.vd-quick-key--green {
+    background-color: #678e98;
+}
+
+.vd-quick-key--blue {
+    background-color: #99c8d4;
+}
+
+.vd-quick-key--purple {
+    background-color: #aa88b5;
+}
+
+.vd-quick-key--white {
+    background-color: #62676f;
+}
+
+.vd-quick-key--blank {
+    border-color: #EBEBEB;
+    cursor: default;
+    box-shadow: none;
+}
+
+.vd-quick-key-inner {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 0;
+
+    &.vd-quick-key-inner--with-image {
+        justify-content: space-between;
+    }
+}
+
+.vd-quick-key--quick-key {
+    .vd-quick-key-inner {
+        background: #FFF;
+        border-radius: 0 0 3px 3px;
+        margin-top: 8px;
+    }
+
+    &:hover {
+        .vd-quick-key-inner {
+            opacity: .8;
+        }
+    }
+}
+
+.vd-quick-key-image {
+    width: 100%;
+    flex: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.vd-quick-key-label {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.3;
+    text-align: center;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+    padding: 4px;
+}
+
+.vd-quick-key-inner--with-image {
+    .vd-quick-key-label {
+        white-space: nowrap;
+        text-overflow: ellipsis;    
+    }
+}
+
+.vd-quick-keys--edit-mode {
+    .vd-quick-key--blank {
+        &:hover {
+            border-color: #c5c5c5;
+        }
+
+        &.vd-quick-key--target {
+            border-color: vd-colour(go)
+        }
+
+        border-style: dotted;
+        border-width: 2px;;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Never require a password when switching between users",
+    "entity": "never"
+  },
+  {
+    "name":
+      "Require a password when switching to a user with greater priviledges",
+    "entity": "greater-priviledge"
+  },
+  {
+    "name":
+      "Don't require a password to switch users when switching with a barcode",
+    "entity": "barcode-free"
+  },
+  {
+    "name": "Always require a password when switching between users",
+    "entity": "always"
+  }
+]

@@ -1,0 +1,20 @@
+.vd-select-container {
+  display: block;
+  @include vd-select-carets();
+
+  // @todo This can be removed once we fully deprecate vd-select in favour of vd-select-input, since the vd-error class
+  // can just be added to the input.
+  &.vd-error {
+    .vd-select {
+      border-color: $vd-colour-input-error-border;
+      &:focus { box-shadow: 0 0 $vd-shadow-blur $vd-colour-input-error-border; }
+    }
+  }
+}
+
+.vd-select {
+  @include vd-select;
+}
+
+@import "./vd-select-group.scss";
+@import "./vd-select-inline.scss";

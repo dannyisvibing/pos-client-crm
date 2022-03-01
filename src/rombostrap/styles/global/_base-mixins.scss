@@ -1,0 +1,12 @@
+// Base mixins.
+
+// Reset container defaults
+@mixin vd-reset () {
+  @include font-smoothing;
+
+  font-family: $vd-font-lato;
+  font-size: $vd-font-size--body-content;
+  line-height: $vd-base-line-height;
+  color: vd-colour(text);
+}
+

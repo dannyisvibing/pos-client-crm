@@ -1,0 +1,5 @@
+.vd-panel {
+  display: block;
+  background-color: vd-colour(box);
+  margin: 0 #{-$vd-section--panel-margin-h};
+}

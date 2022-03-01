@@ -1,0 +1,31 @@
+ul {
+    &.date-shifter {
+        &:last-child {margin-left:1.25em;}
+        .button {line-height:.875rem;}
+        .date {
+            text-align:center;
+            line-height:.875rem;
+            .icon {margin-left:40px;}
+            &.hour {min-width:200px;}
+            &.day {min-width:170px;}
+            &.week {min-width:135px;}
+            &.month {min-width:140px;}
+            &.quarter {min-width:105px;}
+            &.year {min-width:80px;}
+        }
+    }
+}
+
+@include vd-viewport-media-max(640px) {
+    ul {
+        &.date-shifter {
+            &.button-group {
+                text-align:center;
+                display:flex;
+                width:100%;
+                padding-top:0;
+                margin-left:0;
+            }
+        }
+    }
+}

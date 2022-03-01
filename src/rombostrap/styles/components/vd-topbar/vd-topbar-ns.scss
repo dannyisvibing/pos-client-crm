@@ -1,0 +1,20 @@
+$vd-sidebar-tabs-background-color: vd-colour(framing);
+$vd-sidebar-tabs-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+
+$vd-sidebar-tabs-desktop-width: 85px;
+
+$vd-sidebar-tab-height: 75px !default;
+$vd-sidebar-tab-font-colour: vd-colour(text) !default;
+$vd-sidebar-tab-font-size: 12px !default;
+$vd-sidebar-tab-icon-font-size: 20px !default;
+
+$vd-sidebar-tab-active-bg-colour: vd-colour(text) !default;
+$vd-sidebar-tab-active-border-width: 6px !default;
+
+$vd-sidebar-tab-chevron-position-top: 25px;
+$vd-sidebar-tab-chevron-position-right: 8px;
+$vd-sidebar-tab-chevron-opacity: 0.4;
+
+$vd-topbar-item-side-padding: 20px;
+$vd-topbar-item-default-opactiy: .5;
+$vd-topbar-item-label-max-width: 150px;

@@ -1,0 +1,38 @@
+.vd-header {
+  display: block;
+  font-family: $vd-font-primary;
+  font-weight: $vd-font-weight--bold;
+  color: vd-colour(text);
+  margin: 0;
+}
+
+.vd-header--page {
+  font-weight: $vd-font-weight--bold;
+  font-size: $vd-font-size--page-header;
+  position: relative;
+}
+
+.vd-header--subpage {
+  font-size: $vd-font-size--subpage-header;
+}
+
+.vd-header--section {
+  font-size: $vd-font-size--section-header;
+  margin-bottom: 5px;
+}
+
+.vd-header--settings {
+  font-size: $vd-font-size--section-header;
+  margin-bottom: 20px;
+}
+
+.vd-header--dialog {
+  font-size: $vd-font-size--subpage-header;
+  word-break: break-word;
+}
+
+@include vd-viewport-media-max(small) {
+  .vd-header--settings {
+    margin-bottom: 10px;
+  }
+}

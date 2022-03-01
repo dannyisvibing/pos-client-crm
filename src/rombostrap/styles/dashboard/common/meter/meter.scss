@@ -1,0 +1,17 @@
+.ds-meter {
+  height: 8px;
+  width: 100%;
+  border-radius: 5px;
+  background: vd-colour(framing);
+  margin-bottom: vd-grid-unit(3);
+}
+
+.ds-meter-bar {
+  width: 0;
+  // The max-width rule below ensures that the meter bar won't exceed 100%.
+  // Even when the meter bar value is greater (e.g. 130%)
+  max-width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: vd-colour(do);
+}

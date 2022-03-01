@@ -1,0 +1,23 @@
+@keyframes vd-rotate {
+  100% {
+      transform: rotate(360deg);
+  }
+}
+  
+@keyframes vd-fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+  
+@keyframes vd-flash {
+    0% {opacity: 0;}
+    30%, 70% {opacity: 1;}
+    100% {opacity: 0;}
+}
+  
+.vd-fade-out {
+    animation-duration: 1.5s;
+    animation-name: vd-flash;
+    animation-fill-mode:forwards;
+}
+  

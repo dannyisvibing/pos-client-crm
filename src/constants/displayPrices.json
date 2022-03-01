@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Tax exclusive",
+    "entity": "tax-exclusive"
+  },
+  {
+    "name": "Tax inclusive",
+    "entity": "tax-inclusive"
+  }
+]

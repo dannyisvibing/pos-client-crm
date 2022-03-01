@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Continuous feed",
+    "entity": "continuous-feed"
+  },
+  {
+    "name": "Continuous feed (wide)",
+    "entity": "continuous-feed-wide"
+  },
+  {
+    "name": "Continuous dual (2 x 1)",
+    "entity": "continuous-dual"
+  },
+  {
+    "name": "Avery Sheet of 3 x 11",
+    "entity": "avery-sheet-3-11"
+  },
+  {
+    "name": "Avery Sheet of 5 x 13",
+    "entity": "avery-sheet-5-13"
+  },
+  {
+    "name": "US Letter Sheet of 3 x 10",
+    "entity": "us-letter-3-10"
+  },
+  {
+    "name": "Sheet of 4 x 14",
+    "entity": "sheet-4-14"
+  }
+]

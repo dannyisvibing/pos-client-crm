@@ -1,0 +1,12 @@
+$vd-popover-list-spacing: vd-grid-unit(2);
+$vd-popover-list-item-spacing: vd-grid-unit(4);
+
+@mixin vd-popover-list-item ($_vd-popover-item-padding: $vd-popover-list-item-spacing $vd-popover-spacing) {
+  color: currentColor;
+  text-decoration: none;
+  transition-duration: $vd-time-s;
+  transition-property: color, background;
+  display: block;
+  padding: $_vd-popover-item-padding;
+  word-break: break-word;
+}

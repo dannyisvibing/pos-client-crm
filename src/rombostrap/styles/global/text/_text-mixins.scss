@@ -1,0 +1,110 @@
+@import "text-definitions.scss";
+
+@mixin font-smoothing {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: 'liga', 'kern';
+}
+
+// Heading Reset - Ensure correct styling continue for H<1..6>'s
+@mixin vd-heading-reset ($color: vd-colour(text)) {
+  word-break: break-word;
+  font-weight: $vd-font-weight--bold;
+  margin: 0;
+  color: $color;
+}
+
+// Line Heights - Determine a proportionate line height calculated from a design based 'leading' value and the
+// required font size.
+@mixin vd-line-height ($leading, $font-size) {
+  line-height: ($leading / $font-size)
+}
+
+// Intro
+@mixin vd-text-intro () {
+  @include vd-text(intro);
+}
+
+/// Clip a single line of text with an ellipsis.
+///
+/// @mixin vb-text-ellipsis
+///
+@mixin vd-text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-word;
+}
+
+/// Line clamp to the provided number of lines.
+///
+/// @mixin vd-text-clamp
+///
+@mixin vd-text-clamp ($lines: 2) {
+  // Autoprefixer removes out-of-date vendor prefixes
+  // These old prefixes below are required for line clamping to work.
+  // Use autoprefixer control comments so these rules are ignored
+  /* autoprefixer: off */
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  /* autoprefixer: on */
+}
+
+/// Creates the css rules for the given text definition
+///
+/// @mixin vd-text
+///
+/// @param {String} $name - The required text; e.g. grand, heading, body
+///
+@mixin vd-text ($name, $color: text) {
+  @if (map-has-key($_vd-text-definitions, $name)) {
+    $_vd-requested-type-styles: map-get($_vd-text-definitions, $name);
+    $_size: map-get($_vd-requested-type-styles, 'size');
+
+    @include font-smoothing;
+    // Resets to ensure <h#> and <p> elements will have the same margins and text colour
+    word-break: break-word;
+
+    margin: 0;
+
+    @each $property, $value in $_vd-requested-type-styles {
+      @if ($property == 'leading') {
+        @include vd-line-height($value, $_size);
+      }
+
+      @else if ($property == 'casing') {
+        text-transform: $value;
+      }
+
+      @else if ($property == 'tracking') {
+        letter-spacing: $value / 10 * 1em;
+      }
+
+      @else if ($property == 'size') {
+        font-size: $value * 1px;
+      }
+
+      @else {
+        #{$property}: $value;
+      }
+    }
+  } @else {
+    @warn "[text mixin] The specified text name (#{$name}) does not exist.";
+  }
+}
+
+/// Truncate a given element to its contents
+///
+/// @mixin vd-truncate
+///
+@mixin vd-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

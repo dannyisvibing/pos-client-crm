@@ -1,0 +1,7 @@
+$_vd-colour-helpers: (do, go, no);
+
+@each $key in ($_vd-colour-helpers) {
+  .vd-colour-#{$key} {
+    color: vd-colour($key);
+  }
+}

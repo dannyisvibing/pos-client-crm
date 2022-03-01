@@ -1,0 +1,121 @@
+.wr-expanded-sale-container {
+  display: flex;
+  padding-left: 15px;
+}
+
+.wr-expanded-sale-details {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+.wr-expanded-sale-note {
+  padding: 16px 0;
+}
+
+.wr-expanded-sale-note-content {
+  margin-right: 20px;
+}
+
+.wr-expanded-sale-summary-section {
+  border-bottom: 1px solid #BECBCF;
+  padding: 16px 0;
+
+  &:last-child {
+      border-bottom: none;
+  }
+}
+
+.wr-expanded-sale-line-item-total {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 700;
+}
+
+.wr-expanded-sale-line-item {
+  &:not(:first-child) {
+      padding-top: 10px;
+  }
+
+  display: flex;
+  flex-direction: column;
+}
+
+.wr-expanded-sale-line-item-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wr-expanded-sale-line-item-row--indented {
+  padding-left: 35px;
+  max-width: 45%;
+}
+
+.wr-expanded-sale-line-item-description {
+  display: flex;
+  font-weight: 700;
+}
+
+.wr-expanded-sale-line-item-quantity {
+  min-width: 35px;
+  padding-right: 5px;
+}
+
+.wr-expanded-sale-line-item-name {
+  padding-right: 10px;
+}
+
+.wr-expanded-sale-line-item-unit-price-details {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.wr-expanded-sale-line-item-unit-price {
+  font-weight: 700;
+  padding-right: 10px;
+}
+
+.wr-expanded-sale-summary {
+  display: flex;
+}
+
+.wr-expanded-sale-label--bold {
+  font-weight: 700;
+}
+
+.wr-expanded-sale-totals-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wr-expanded-sale-total-label {
+  text-transform: uppercase;
+}
+
+.wr-expanded-sale-totals-tax-breakdown-section {
+  border-left: 1px solid #becbcf;
+  margin-left: 4px;
+}
+
+.wr-expanded-sale-totals-tax-item {
+  padding-left: 20px;
+}
+
+.wr-expanded-sale-payment-amount {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wr-expanded-sale-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 169px;
+  padding: 5px;
+}
+
+.wr-expanded-sale-actions-buttons {
+  display: flex;
+  flex-direction: column;
+}

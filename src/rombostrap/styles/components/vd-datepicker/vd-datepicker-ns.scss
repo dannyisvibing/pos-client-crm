@@ -1,0 +1,74 @@
+// Date picker general
+$vd-datepicker-font-size: 15px;
+$vd-datepicker-button-colour: vd-colour(do);
+$vd-datepicker-padding: 24px;
+$vd-datepicker-background: vd-colour(box);
+$vd-datepicker-border: vd-border(framing);
+
+// Date picker no end date
+$vd-datepicker-range-no-end-height: 32px;
+
+// Table
+$vd-datepicker-table-spacing: 10px;
+$vd-datepicker-range-colour: mix($vd-datepicker-button-colour, vd-colour(box), 10%);
+
+// Button
+$vd-datepicker-button-radius: 50%;
+$vd-datepicker-button-size: 30px;
+
+// Button next / prev
+$vd-datepicker-next-prev-button-width: 26px;
+$vd-datepicker-next-prev-button-icon-size: 7px;
+$vd-datepicker-next-prev-arrow-border-enabled: 3px solid vd-colour(text);
+$vd-datepicker-next-prev-arrow-border-disabled: 3px solid vd-colour(framing);
+
+// Select
+$vd-datepicker-select-horizontal-positioning: 29px;
+$vd-datepicker-select-vertical-positioning: 15px;
+
+// Select icon
+$vd-datepicker-select-icon-position-top: 10px;
+$vd-datepicker-select-icon-position-right-even: 37px;
+$vd-datepicker-select-icon-position-right-odd: 110px;
+$vd-datepicker-select-icon-border-width: 4px;
+$vd-datepicker-select-arrow-border: 5px solid vd-colour(text);
+
+// inputs
+$vd-datepicker-data-inputs-width: 245px;
+$vd-datepicker-date-input-border-radius: $vd-border-radius 0 0 $vd-border-radius;
+$vd-datepicker-time-input-border-radius: 0 $vd-border-radius $vd-border-radius 0;
+
+// Mixins
+@mixin next-prev-arrow-common {
+  content: " ";
+  visibility: visible;
+  position: absolute;
+  width: $vd-datepicker-next-prev-button-icon-size;
+  height: $vd-datepicker-next-prev-button-icon-size;
+  border-right: $vd-datepicker-next-prev-arrow-border-enabled;
+  border-top: $vd-datepicker-next-prev-arrow-border-enabled;
+  box-sizing: initial;
+}
+
+@mixin next-prev-arrow-common--disabled {
+  border-right: $vd-datepicker-next-prev-arrow-border-disabled;
+  border-top: $vd-datepicker-next-prev-arrow-border-disabled;
+}
+
+@mixin vd-datepicker-select-common {
+  top: -$vd-datepicker-select-vertical-positioning;
+  position: absolute;
+  background: $vd-datepicker-background;
+}
+
+@mixin vd-datepicker-select-arrow-common {
+  position: absolute;
+  content: " ";
+  pointer-events: none;
+  visibility: visible;
+  width: 0;
+  height: 0;
+  border-left: $vd-datepicker-select-icon-border-width solid transparent;
+  border-right: $vd-datepicker-select-icon-border-width solid transparent;
+  z-index: $vd-z-index-content-base;
+}

@@ -1,0 +1,60 @@
+$_vd-text-definitions: (
+    grand: (
+      size: 48,
+      leading: 56,
+      font-weight: 700
+    ),
+    hero: (
+      size: 32,
+      leading: 48,
+      font-weight: 700
+    ),
+    heading: (
+      size: 24,
+      leading: 32,
+      font-weight: 700
+    ),
+    sub-heading: (
+      size: 18,
+      leading: 24,
+      font-weight: 700
+    ),
+    intro: (
+      size: 18,
+      leading: 24,
+      font-weight: 400
+    ),
+    signpost: (
+      size: 15,
+      leading: 20,
+      font-weight: 900,
+      tracking: 1.5,
+      casing: uppercase
+    ),
+    label: (
+      size: 15,
+      leading: 20,
+      font-weight: 700
+    ),
+    body: (
+      size: 15,
+      leading: 20,
+      font-weight: 400
+    ),
+    supplementary: (
+      size: 12,
+      leading: 15,
+      font-weight: 400
+    ),
+    mini-signpost: (
+      size: 10,
+      leading: 12,
+      font-weight: 900,
+      casing: uppercase
+    ),
+    mini-copy: (
+      size: 10,
+      leading: 12,
+      font-weight: 400
+    )
+  );

@@ -1,0 +1,15 @@
+.vd-loading-spinner-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vd-loading-spinner {
+    svg {
+        fill: #666;
+        width: 38px;
+        height: 38px;
+    }
+}

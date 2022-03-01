@@ -1,0 +1,40 @@
+export default class Customer {
+  constructor(config = {}) {
+    this.id = config.id;
+    this.createdAt = config.createdAt;
+    this.deletedAt = config.deletedAt;
+    this.firstname = config.firstname;
+    this.lastname = config.lastname;
+    this.company = config.company;
+    this.code = config.code;
+    this.customerGroupId = config.customerGroupId;
+    this.birthday = config.birthday;
+    this.sex = config.sex;
+    this.phone = config.phone;
+    this.email = config.email;
+    this.mobile = config.mobile;
+    this.website = config.website;
+    this.fax = config.fax;
+    this.twitter = config.twitter;
+    this.optDirectMail = config.optDirectMail;
+    this.physicalStreet1 = config.physicalStreet1;
+    this.physicalStreet2 = config.physicalStreet2;
+    this.physicalSuburb = config.physicalSuburb;
+    this.physicalCity = config.physicalCity;
+    this.physicalPostcode = config.physicalPostcode;
+    this.physicalState = config.physicalState;
+    this.physicalCountry = config.physicalCountry;
+    this.postalStreet1 = config.postalStreet1;
+    this.postalStreet2 = config.postalStreet2;
+    this.postalCity = config.postalCity;
+    this.postalPostcode = config.postalPostcode;
+    this.postalState = config.postalState;
+    this.postalCountry = config.postalCountry;
+    this.customField1 = config.customField1;
+    this.customField2 = config.customField2;
+    this.customField3 = config.customField3;
+    this.customField4 = config.customField4;
+    this.customerNote = config.customerNote;
+    this.version = config.version;
+  }
+}

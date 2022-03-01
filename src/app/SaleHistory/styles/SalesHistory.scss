@@ -1,0 +1,57 @@
+.wr-sales-history-searchfilters-container {
+  flex: 3;
+}
+
+.wr-sales-history-searchfilters {
+  display: flex;
+}
+
+.wr-sales-history-searchfilters-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.wr-sales-history-search-item {
+  flex: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.wr-sales-history-search-item:first-child {
+  margin-left: 0;
+}
+
+.wr-sales-history-actions-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex: 1;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.wr-sales-history-actions {
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+
+.wr-sales-history-actions-toggle {
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.wr-sales-history-date-heading {
+  width: 150px;
+}
+
+.wr-sales-history-table-sale-total-column {
+  padding-right: 30px;
+}
+
+.wr-sales-history-table-status-heading {
+  width: 100px;
+}
+
+.wr-sales-history-table-actions-group-action {
+  display: inline-block;
+}

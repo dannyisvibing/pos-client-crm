@@ -1,0 +1,78 @@
+table {
+  &.item_list {
+      width: 99%;
+      background-color: #fff;
+
+      td, th {
+          border-bottom: 1px solid #DCDCDC;
+          padding: 5px 9px;
+      }
+
+      th {
+          font-weight: 700!important;
+      }
+
+      thead {
+          th {
+              &:first-child {
+                  border-top-left-radius: 5px;
+              }
+
+              &:last-child {
+                  border-top-right-radius: 5px;
+              }
+
+              background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…dpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==);
+              background-size: 100%;
+              background-image: linear-gradient(#888,#545454);
+              text-shadow: 0 -1px 0 rgba(0,0,0,.4);
+              box-shadow: inset 0 2px 0 -1px rgba(255,255,255,.2);
+              box-sizing: border-box;
+              border: 1px solid #525252;
+              height: 35px;
+              line-height: 16px;
+              border-left: 0;
+              border-bottom: 1px solid #333;
+              padding: 0 9px;
+              color: #fff;
+              font-weight: 700;
+          }
+      }
+
+      tbody {
+
+          tr {
+              &.section-header {
+                  td, th {
+                      padding: 7px 9px;
+                      background: #f6f6f6;
+                  }
+              }
+              td {
+                  border-right: 1px solid #d8d8d8;
+                  &:first-child {
+                      border-left: 1px solid #d8d8d8;
+                  }
+                  &:last-child {
+                      border-right: 1px solid #d8d8d8;
+                  }
+                  &.blank {
+                      background: #fcfcfc;
+                      border-bottom: 1px solid #fcfcfc;
+                  }
+              }
+              &.last {
+                  td {
+                      &.blank {
+                          border-bottom: 1px solid #d8d8d8;
+                      }
+                  }
+              }
+          }
+      }
+  }
+}
+
+.table-fixed {
+  table-layout: fixed;
+}

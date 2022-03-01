@@ -1,0 +1,49 @@
+.vd-flag {
+  @include vd-text(mini-signpost);
+
+  padding: vd-grid-unit(1) vd-grid-unit(2);
+  background-color: vd-colour(framing);
+  border-radius: $vd-border-radius;
+  display: inline-block;
+  vertical-align: text-top;
+  overflow: hidden;
+
+  &,
+  &:link,
+  &:visited {
+    color: vd-colour(supplementary--text) !important;
+  }
+
+}
+
+.vd-flag-chevron {
+  border-width: 1px 1px 0px 0px;
+  border-style: solid;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  transform: rotate(59deg) skew(27deg);
+  margin-top: -2px;
+  margin-bottom: -4px;
+  margin-left: -3px;
+  margin-right: 3px;
+  opacity: 0.5;
+  // Hacks to ensure anti-aliasing
+  backface-visibility: hidden; // Chrome
+  outline: 1px solid transparent; // Firefox
+}
+
+.vd-flag--negative,
+.vd-flag--warning {
+  background-color: vd-colour(no);
+
+  &,
+  &:link,
+  &:visited {
+    color: vd-colour(text, dark) !important;
+  }
+
+  .vd-flag-chevron{
+    opacity: 1;
+  }
+}

@@ -1,0 +1,14 @@
+$ds-card-footer-spacing: $ds-card-padding + $vd-card-framing;
+
+.ds-teaser-card {
+  background-color: vd-colour(framing);
+}
+
+.ds-teaser-card-footer {
+  background-color: vd-colour(keyline);
+  padding: $ds-card-footer-spacing;
+  margin: -($ds-card-footer-spacing);
+  padding-top: $ds-card-padding;
+  margin-top: $ds-card-padding;
+  border-radius: 0 0 $vd-card-border-radius $vd-card-border-radius;
+}

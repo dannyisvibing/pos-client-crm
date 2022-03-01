@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'lato';
+  src: url($vd-font-src + 'lato-hairline.ttf') format('truetype');
+  font-weight: $vd-font-weight--thin;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url($vd-font-src + 'lato-light.ttf') format('truetype');
+  font-weight: $vd-font-weight--light;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url($vd-font-src + 'lato-regular.ttf') format('truetype');
+  font-weight: $vd-font-weight--regular;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url($vd-font-src + 'lato-bold.ttf') format('truetype');
+  font-weight: $vd-font-weight--bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url($vd-font-src + 'lato-black.ttf') format('truetype');
+  font-weight: $vd-font-weight--ultra-bold;
+  font-style: normal;
+  font-display: swap;
+}

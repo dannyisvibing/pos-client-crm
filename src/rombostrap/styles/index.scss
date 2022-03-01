@@ -1,0 +1,152 @@
+@import './_variables.scss';
+@import './_functions.scss';
+@import './_mixins.scss';
+
+@import './global/viewport/_viewport-identifier.scss';
+@import './global/colour/_colour-helpers.scss';
+@import './global/colour/_base.scss';
+@import './global/effects/effects';
+@import './global/text/text-helpers';
+@import './global/surgical';
+@import './global/fa-icons';
+@import './global/normalise';
+@import './global/placeholders';
+
+@import './components/vd-grid/vd-grid.scss';
+@import './components/vd-flex/vd-flex.scss';
+@import './components/vd-action-bar/vd-action-bar.scss';
+@import './components/vd-autocomplete/vd-autocomplete.scss';
+@import './components/vd-autocomplete-filter/vd-autocomplete-filter.scss';
+@import './components/vd-badges/vd-id-badge/vd-id-badge.scss';
+@import './components/vd-banner/vd-banner.scss';
+@import './components/vd-body/vd-body.scss';
+@import './components/vd-button/vd-button.scss';
+@import './components/vd-card/vd-card.scss';
+@import './components/vd-carousel/vd-carousel.scss';
+@import './components/vd-chart/vd-chart.scss';
+@import './components/vd-checkbox/vd-checkbox.scss';
+@import './components/vd-datepicker/date-shifter.scss';
+@import './components/vd-datepicker/vd-datepicker.scss';
+@import './components/vd-datepicker/date-selector.scss';
+@import './components/vd-dialog/vd-dialog.scss';
+@import './components/vd-dialog-close/vd-dialog-close.scss';
+@import './components/vd-dialog-drawer/vd-dialog-drawer.scss';
+@import './components/vd-dropdown/vd-dropdown.scss';
+@import './components/vd-expandable/vd-expandable.scss';
+@import './components/vd-feedback/vd-feedback.scss';
+@import './components/vd-field/vd-field.scss';
+@import './components/vd-fieldset/vd-fieldset.scss';
+@import './components/vd-flag/vd-flag.scss';
+@import './components/vd-header/vd-header.scss';
+@import './components/vd-hero/vd-hero.scss';
+@import './components/vd-hr/vd-hr.scss';
+@import './components/vd-in-page-help/vd-in-page-help.scss';
+@import './components/vd-input/vd-input.scss';
+@import './components/vd-input-char-limit/vd-input-char-limit.scss';
+@import './components/vd-link/vd-link.scss';
+@import './components/vd-loader/vd-loader.scss';
+@import './components/vd-loading-spinner/vd-loading-spinner.scss';
+@import './components/vd-lozenge/vd-lozenge.scss';
+@import './components/vd-lozenge-group/vd-lozenge-group.scss';
+@import './components/vd-main-content/vd-main-content.scss';
+@import './components/vd-modals-container/vd-modals-container.scss';
+@import './components/vd-multiselect-popover/vd-multiselect-popover.scss';
+@import './components/vd-nav-item/vd-nav-item.scss';
+@import './components/vd-next-stepper/vd-next-stepper.scss';
+@import './components/vd-overlay/vd-overlay.scss';
+@import './components/vd-p/vd-p.scss';
+@import './components/vd-panel/vd-panel.scss';
+@import './components/vd-popover/vd-popover.scss';
+@import './components/vd-popover-list/vd-popover-list.scss';
+@import './components/vd-promo/vd-promo.scss';
+@import './components/vd-quick-keys/vd-quick-keys.scss';
+@import './components/vd-radio/vd-radio.scss';
+@import './components/vd-save/vd-save.scss';
+@import './components/vd-scrollable/vd-scrollable.scss';
+@import './components/vd-section/vd-section.scss';
+@import './components/vd-section-back/vd-section-back.scss';
+@import './components/vd-segcontrol/vd-segcontrol.scss';
+@import './components/vd-select/vd-select.scss';
+@import './components/vd-settings/vd-settings.scss';
+@import './components/vd-sidebar/vd-sidebar.scss';
+@import './components/vd-splash/vd-splash.scss';
+@import './components/vd-status-icon/vd-status-icon.scss';
+@import './components/vd-suggestion/vd-suggestion-list.scss';
+@import './components/vd-switch/vd-switch.scss';
+@import './components/vd-tables/vd-table.scss';
+@import './components/vd-tabs/vd-tabs.scss';
+@import './components/vd-text/vd-text.scss';
+@import './components/vd-toast-notification/vd-toast-notification.scss';
+@import './components/vd-topbar/vd-topbar.scss';
+@import './components/vd-visibility/vd-visibility.scss';
+
+@import './behaviours/index';
+@import './inventoryCount/index.scss';
+@import './users/user-permissions.scss';
+@import './dashboard/dashboard.scss';
+@import './reporting/_analytics.scss';
+
+*, :before, :after {
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+ol, ul, dl {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+// table {
+//   background: 0 0;
+//   border: solid 1px #ddd;
+//   margin-bottom: 1.25rem;
+//   table-layout: auto;
+// }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button, html
+input[type=button], input[type=reset],
+input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+input {
+  line-height: normal;
+}
+
+button:focus {
+  outline: none;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+h1, h2, h3, h4, ul {
+  margin: 0;
+}
+
+.hidden {
+  display: none !important;
+}

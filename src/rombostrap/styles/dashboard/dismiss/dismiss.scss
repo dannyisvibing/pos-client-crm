@@ -1,0 +1,46 @@
+$ds-custom-reminder-option-spacing: vd-grid-unit(2);
+$ds-dismissed-translate: 200px;
+
+.ds-custom-reminder-field {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-bottom: $ds-custom-reminder-option-spacing;
+
+  .vd-radio {
+    margin-bottom: $ds-custom-reminder-option-spacing;
+  }
+
+  @include vd-viewport-media-min(small) {
+    margin-top: 0;
+  }
+}
+
+.ds-custom-reminder-value {
+  position: relative;
+  flex: 1;
+  min-width: vd-grid-unit(40);
+  margin-left: $ds-custom-reminder-option-spacing;
+  margin-bottom: vd-grid-unit(1);
+}
+
+.ds-custom-reminder-preview {
+  padding-left: vd-grid-unit(4);
+
+  @include vd-viewport-media-max(xsmall) {
+    padding-left: 0;
+    order: -1;
+    padding-bottom: vd-grid-unit(4);
+  }
+}
+
+.ds-dismissed {
+  animation: 0.5s ease-in dismissed forwards;
+}
+
+@keyframes dismissed {
+  to {
+    opacity: 0;
+    transform: translate3d(0, $ds-dismissed-translate, 0);
+  }
+}

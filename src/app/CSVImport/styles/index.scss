@@ -1,0 +1,91 @@
+.vd-csv-upload-icon {
+  font-size: 28px;
+}
+
+.vd-ghost-file-dialog {
+  display: none;
+}
+
+.csv-match-fields {
+  padding: 50px;
+}
+
+.vd-csv-match-card {
+  display: flex;
+  margin-right: 10px;
+}
+
+.vd-csv-match-card-sample-data {
+  width: 100%;
+}
+
+.csv-card-matching-container {
+  overflow: hidden;
+  overflow-x: scroll;
+  padding-bottom: 40px;
+}
+
+.csv-card-matching {
+  min-width: 280px;
+}
+
+.csv-card-matching-sample-data-container {
+  th {
+      padding: 0;
+      vertical-align: bottom;
+      text-align: left;
+      font-weight: normal;
+  }
+
+  td {
+      padding: 0;
+      height: 60px;
+  }
+
+  &.csv-card-matching-sample-data-container--ignored {
+      opacity: 0.35;
+  }
+}
+
+.csv-card-matching-header {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  min-height: 160px;
+}
+
+.csv-card-matching-confirmed-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80px;
+  text-align: center;
+}
+
+.csv-card-matching-confirmed-field-name {
+  line-height: 1;
+}
+
+.csv-card-matching-sample-data-cell {
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  max-height: 40px;
+}
+
+.vd-csv-table {
+  tbody {
+      tr {
+          &:last-child {
+              border-bottom: none;
+          }
+      }
+  }
+}
+
+td {
+  &.csv-missing-column-field-name {
+      vertical-align: top;
+  }
+}

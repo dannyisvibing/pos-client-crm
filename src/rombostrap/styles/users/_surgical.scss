@@ -1,0 +1,10 @@
+.up-sentence-case::first-letter { text-transform: capitalize; }
+
+.up-capitalize { text-transform: capitalize; }
+
+// Visually hide an element but retain the space taken up by it.
+// e.g. hide buttons on an action bar, when they are shown the height of the action bar won't change.
+.up-invisible {
+  pointer-events: none;
+  opacity: 0;
+}

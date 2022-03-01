@@ -1,0 +1,37 @@
+.vd-next-stepper {
+  display: block;
+  padding: vd-grid-unit(6);
+  background-color: vd-colour(box);
+  border: vd-border(framing);
+}
+
+.vd-next-stepper-summary {
+  display: flex;
+  justify-content: space-between;
+
+  @include vd-viewport-media-max ($vd-breakpoint-xsmall) {
+    display: block;
+  }
+}
+
+.vd-next-stepper-link {
+  flex-basis: 90%;
+  padding-right: vd-grid-unit(2);
+
+  @include vd-viewport-media-max ($vd-breakpoint-xsmall) {
+    padding: 0 0 vd-grid-unit(2) 0;
+  }
+}
+
+.vd-next-stepper-details {
+  display: flex;
+  flex-direction: column;
+  border-top: vd-border(keyline);
+  margin-top: vd-grid-unit(2);
+  padding-top: vd-grid-unit(2);
+}
+
+.vd-next-stepper-confirm {
+  margin: vd-grid-unit(2) 0 0;
+  align-self: flex-end;
+}

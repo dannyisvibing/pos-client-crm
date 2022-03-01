@@ -1,0 +1,45 @@
+@function vd-grid-unit($count) {
+  @return $count * 4 * 1px;
+}
+
+@function vd-colour($key, $dark:"") {
+  @if ($dark == "dark") {
+    @return #fff;
+  }
+  @if (map-has-key($vd-main-colors, $key)) {
+    @return map-get($vd-main-colors, $key);
+  } @else {
+    @warn "[color mixin] The specified color (#{$key}) does not exist";
+  }
+}
+
+@function vd-colour-highlight($color1, $color2) {
+  @return mix(vd-colour($color1), vd-colour($color2), 10%);
+}
+
+@function vd-border($colorKey, $strokeWidth:1px) {
+  $border: $strokeWidth solid vd-colour($colorKey);
+  @return $border;
+}
+
+@function get-viewport-px-width($_viewport, $bound) {
+  @if ($_viewport == "xlarge" and $bound == "min") {
+    @return $vd-breakpoint-xlarge-min;
+  } @else if ($_viewport == "large" and $bound == "max") {
+    @return $vd-breakpoint-large;
+  } @else if ($_viewport == "large" and $bound == "min") {
+    @return $vd-breakpoint-large-min;
+  } @else if ($_viewport == "medium" and $bound == "max") {
+    @return $vd-breakpoint-medium;
+  } @else if ($_viewport == "medium" and $bound == "min") {
+    @return $vd-breakpoint-medium-min;
+  } @else if ($_viewport == "small" and $bound == "max") {
+    @return $vd-breakpoint-small;
+  } @else if ($_viewport == "small" and $bound == "min") {
+    @return $vd-breakpoint-small-min;
+  } @else if ($_viewport == "xsmall") {
+    @return $vd-breakpoint-xsmall;
+  } @else {
+    @return null;
+  }
+}

@@ -1,0 +1,166 @@
+// Local Variables
+$product-col: 46%;
+$expected-col: 13.5%;
+$total-col: 13.5%;
+$unit-col: 13.5%;
+$cost-col: 13.5%;
+$differences-section: $unit-col + $cost-col;
+$inventory-count-section: $expected-col + $total-col;
+$count-list-section: $product-col;
+
+.stocktake-view-list {
+    padding-top: $list-padding-y;
+
+    .table { table-layout: fixed; }
+    .table-cell { word-wrap: break-word; vertical-align: middle; }
+    .table-cell--product { width: $product-col + $inventory-count-section; }
+    .table-cell--expected { width: $expected-col;}
+    .table-cell--total { width: $total-col; }
+    .table-cell--unit { width: $unit-col; }
+    .table-cell--cost { width: $cost-col; }
+    .table-cell--differences { display: none; }
+    .table-cell--section-count { width: $inventory-count-section; }
+    .table-cell--section-list { width: $count-list-section; }
+
+    .table-cell--section-differences {
+        display: none;
+        width: $differences-section;
+    }
+
+    .table-cell--list-total,
+    .table-cell--section-list {
+        width: $count-list-section + $inventory-count-section;
+    }
+}
+
+.stocktake-view-list--with-differences {
+    .table-cell--section-differences,
+    .table-cell--differences {
+        display: table-cell;
+    }
+
+    .table-cell--product {
+        width: $product-col;
+    }
+
+    .table-cell--section-list {
+        width: $count-list-section;
+    }
+}
+
+.stocktake-view-list--with-heading {
+    padding-top: 0;
+}
+
+.stocktake-view-list-header {
+    .table {
+        width: 100%;
+        border-collapse: separate;
+        border-radius: 5px 5px 0 0;
+        border-bottom: none;
+    }
+
+    .table-head .table-cell {
+        border-bottom: none;
+    }
+}
+
+.stocktake-view-list-body {
+
+    .table-head .table-cell {
+        white-space: nowrap;
+    }
+
+    .table {
+        border-radius: 0;
+        overflow: visible;
+    }
+}
+
+.stocktake-view-list-totals {
+    .table {
+        width: 100%;
+        border-top: none;
+        border-collapse: separate;
+        border-radius: 0 0 5px 5px;
+        font-size: 16px;
+        overflow: visible;
+    }
+
+    .table-row {
+        background-color: vd-colour(framing);
+    }
+}
+
+.ic-list__totals {
+    height: 18px;
+    width: 18px;
+    margin: 0 3px 3px;
+
+    .tooltip {
+        @include animation(fade-in .5s);
+
+        border-radius: 0;
+        min-width: 250px;
+        width: 100%;
+        // Offset by 1 px so right border overlaps with table
+        left: calc(-60% + 1px);
+        top: -100px;
+        font-size: 15px;
+        color: $colour-tundora;
+
+        &:before {
+            left: 42%;
+        }
+    }
+
+    &.ic-list__totals--hide-costs .tooltip { min-width: 160px; }
+
+    .info-title {
+        width: 60px;
+        font-size: 16px;
+    }
+
+    table {
+        width: 100%;
+        padding: 8px;
+        table-layout: fixed;
+    }
+
+    .table-cell {
+        padding: 5px;
+    }
+}
+
+.stocktake-view-list-totals-info:hover {
+    transition: 0.8 ease background-color;
+    background-color: $colour-dusty-gray;
+    border-radius: 50%;
+}
+
+.stocktake-view-list-totals--is-fixed {
+    @include animation(fade-in .1s);
+
+    position: fixed;
+    bottom: 0;
+
+    .table {
+        border-top: 1px solid $colour-alto;
+        overflow: visible;
+    }
+}
+
+@media screen and (max-width: $side-nav-media-query-breakpoint) {
+    // @note Conditional style for collapsed side nav, due to fixed position making it outside of document flow
+    .stocktake-view-list-totals--is-fixed {
+        left: 0;
+    }
+}
+
+.collections-actions {
+    .action-popup-title {
+        display: inline-block;
+        background-color: transparent;
+        border: unset;
+    }
+}

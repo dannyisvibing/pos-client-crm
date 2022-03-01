@@ -1,0 +1,53 @@
+.vd-field {
+  margin-bottom: $vd-field-margin;
+  font-size: $vd-font-size--body-content;
+  flex: 1;
+
+  &:last-child { margin-bottom: 20px; }
+
+  .vd-label {
+    @include vd-text(label);
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  .vd-value { position: relative; }
+
+  .vd-fieldset & {
+    margin-bottom: $vd-fieldset-field-margin-bottom;
+
+    &:not(:last-child) {
+      margin-right: $vd-fieldset-field-margin-right;
+
+      @include vd-viewport-media-max(xsmall) {
+        margin-right: 0;
+      }
+    }
+
+    &:only-child {
+      margin-bottom: $vd-fieldset-field-margin-bottom;
+    }
+  }
+}
+
+.vd-field--short {
+  max-width: $vd-field-short-max-width;
+  margin-right: $vd-field-margin;
+
+  &:last-of-type { margin-right: 0; }
+}
+
+@include vd-viewport-media-max(small) {
+  .vd-field {
+    margin-top: $vd-field-margin;
+
+    .vd-fieldset & {
+      margin-top: inherit;
+    }
+  }
+
+  .vd-field--short {
+    max-width: initial;
+    margin-right: 0;
+  }
+}

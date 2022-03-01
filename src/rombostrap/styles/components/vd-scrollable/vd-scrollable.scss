@@ -1,0 +1,50 @@
+.vd-scrollable-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.vd-scrollable {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.vd-scrollable-indicator {
+  opacity: 0;
+  position: absolute;
+  height: $vd-scrollable-indicator-height;
+  width: $vd-scrollable-indicator-width;
+  margin: 0 (-$vd-scrollable-indicator-width / 2);
+  left: 50%;
+  z-index: $vd-z-index-content-base;
+  user-select: none;
+  pointer-events: none;
+  overflow: hidden;
+  transition: opacity $vd-time-s ease 0s;
+
+  &::before  {
+    content: '';
+    box-shadow: 0 0 $vd-scrollable-indicator-height vd-colour(shadow);
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+}
+
+.vd-scrollable-monobrow {
+  top: 0;
+
+  &::before {
+    transform: translateY(-100%);
+  }
+}
+
+.vd-scrollable-goatee {
+  bottom: 0;
+
+  &::before {
+    transform: translateY(100%);
+  }
+}

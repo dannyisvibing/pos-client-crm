@@ -1,0 +1,66 @@
+.vd-flex {
+  display: flex;
+  flex: 1;
+}
+
+.vd-flex--settings-explanation {
+  min-width: $vd-settings-explanation-width;
+  padding-right: 40px;
+}
+
+.vd-flex--settings-expanded-content {
+  margin-left: 85px !important;
+}
+
+.vd-flex--row             { flex-direction: row; }
+.vd-flex--column          { flex-direction: column; }
+.vd-flex--container       { flex: 0 0 auto; }
+.vd-flex--fieldset-row    { flex-direction: row; }
+
+.vd-flex--no-shrink       { flex-shrink: 0 }
+
+.vd-flex--justify-start   { justify-content: flex-start; }
+.vd-flex--justify-end     { justify-content: flex-end; }
+.vd-flex--justify-between { justify-content: space-between; }
+.vd-flex--justify-around  { justify-content: space-around; }
+.vd-flex--justify-center  { justify-content: center; }
+
+.vd-flex--align-start     { align-items: flex-start; }
+.vd-flex--align-end       { align-items: flex-end; }
+.vd-flex--align-baseline  { align-items: baseline; }
+.vd-flex--align-center    { align-items: center; }
+.vd-flex--align-stretch   { align-items: stretch; }
+
+// @note DEPRECATED; do not use any of the selectors here (make use of the responsive vd-grid instead):
+// vd-col-[n], .vd-flex--responsive-column, .vd-flex--settings-explanation, .vd-flex--settings, .vd-flex--row,
+// .vd-flex--fieldset-row
+
+@for $i from 1 through 12 {
+  .vd-col-#{$i} {
+    flex-basis: $vd-section-wrap-max-width * $i / 12;
+  }
+}
+
+@include vd-viewport-media-max(small) {
+  .vd-flex--responsive-column {
+    flex-basis: auto;
+    margin: 0 0 $vd-section-padding-v 0;
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  .vd-flex--settings-explanation {
+    flex: initial;
+    display: block;
+    padding-right: 0;
+  }
+
+  .vd-flex--settings,
+  .vd-flex--row { flex-direction: column; }
+}
+
+@include vd-viewport-media-max(xsmall) {
+  .vd-flex--fieldset-row  {
+    flex-direction: column;
+  }
+}

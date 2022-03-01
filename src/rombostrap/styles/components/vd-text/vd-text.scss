@@ -1,0 +1,15 @@
+.vd-text--secondary { color: vd-colour(supplementary--text); }
+.vd-text--success   { color: vd-colour(do); }
+.vd-text--negative  { color: vd-colour(no); }
+.vd-text--warning   { color: $vd-colour-text-warning; }
+
+.vd-text--sub { font-size: $vd-font-size--body-sub-content; }
+
+.vd-text--intro {
+  @include vd-text-intro;
+}
+
+// used when redering api data, honour line breaks so user entered data looks correct
+.vd-text--honour-line-break {
+  white-space: pre-line;
+}

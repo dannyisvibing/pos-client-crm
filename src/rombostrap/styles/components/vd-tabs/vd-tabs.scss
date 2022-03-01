@@ -1,0 +1,55 @@
+.vd-tabs {
+  display: block;
+  padding: 0;
+  margin: 0;
+  box-shadow: inset 0 -1px vd-colour(keyline);
+}
+
+.vd-tab {
+  display: inline-block;
+
+  & + .vd-tab {
+    margin-left: $vd-tab-spacing;
+  }
+
+  &.vd-tab--active .vd-tab-button,
+  &:hover .vd-tab-button {
+    border-bottom-color: vd-colour(do);
+    color: vd-colour(do);
+  }
+
+  &:hover:not(.vd-tab--active) .vd-tab-button {
+    cursor: pointer;
+  }
+}
+
+.vd-tab-button {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  height: vd-grid-unit(12);
+  padding: 0;
+  border-bottom: 4px solid transparent;
+  color: vd-colour(supplementary--text);
+  font-family: $vd-font-primary;
+  font-size: $vd-tab-font-size;
+  font-weight: $vd-font-weight--regular;
+  outline: none;
+  transition: background $vd-time-s;
+}
+
+// ========= Component Modifiers ========= //
+.vd-tabs--no-border {
+  box-shadow: none;
+}
+
+.vd-tabs--large {
+  .vd-tab {
+    .vd-tab-button {
+      font-size: $vd-tab-font-size--large;
+      border-bottom-width: 5px;
+    }
+  }
+}

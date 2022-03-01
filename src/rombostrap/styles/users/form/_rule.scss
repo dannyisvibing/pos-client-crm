@@ -1,0 +1,113 @@
+.up-user-input-cell {
+  width: 120px;
+}
+
+// @todo this should be a vend.ui class
+.up-input-loading {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+// @todo this should be in vend.ui
+.vd-checkbox {
+  &.vd-disabled {
+    filter: grayscale(100%);
+
+    .vd-checkbox-input:checked + .vd-checkbox-tick {
+      opacity: 0.3;
+    }
+  }
+}
+
+// @todo this should be in vend.ui
+.vd-radio {
+  &.vd-disabled {
+    filter: grayscale(100%);
+
+    .vd-radio-input:checked + .vd-radio-tick {
+      opacity: 0.3;
+    }
+  }
+}
+
+// @todo: this should be a directive in vend.ui with its own classes vd-file-input
+.up-file-input__name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.up-file-input__input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+
+  & + label {
+    cursor: pointer;
+    display: inline-block;
+    max-width: 130px;
+
+    &:hover {
+      background-color: vd-colour(box);
+
+    }
+  }
+}
+
+// password strength meter
+.up-password-meter {
+  margin: 0 auto;
+  margin-left: 1px;
+  margin-right: 1px;
+  width: calc(100% - 2px);
+  height: 3px;
+  position: relative;
+  top: -4px;
+  background: none;
+}
+
+.up-password-meter-bar {
+  height: 100%;
+  transition: width .4s ease-out;
+}
+
+.up-password-meter-bar[data-value="0"] { background: none; }
+.up-password-meter-bar[data-value="1"] {
+  background: #e41e25;
+  width: calc(1/5 * 100%);
+}
+.up-password-meter-bar[data-value="2"] {
+  background: #ee614b;
+  width: calc(2/5 * 100%);
+}
+.up-password-meter-bar[data-value="3"] {
+  background: #faa321;
+  width: calc(3/5 * 100%);
+}
+.up-password-meter-bar[data-value="4"] {
+  background: #e2b909;
+  width: calc(4/5 * 100%);
+}
+.up-password-meter-bar[data-value="5"] {
+  background: #5daf2e;
+  width: 100%;
+}
+
+.vd-i-verified-badge {
+  visibility: hidden;
+}
+
+.has-valid-email {
+  .vd-i-verified-badge {
+    visibility: visible;
+  }
+}
+
+.up-ignore-navlink-visited {
+    color: #fff !important;
+}

@@ -1,0 +1,90 @@
+$vd-input-padding: vd-grid-unit(3) !default;
+$vd-input-icon-padding: 35px;
+$vd-input-icon-position-h: 10px;
+$vd-input-border-width: 1px;
+
+$vd-input-message-margin: 8px;
+
+// Generate 5dp px line height value for vd-textarea. Required to accurately calculate it's height based on the
+// requested number of lines. Specify the exact pixel value to ensure there is not rounding issues between browsers.
+$vd-textarea-leading: 20;
+// $vd-textarea-unitless-font-size: strip-unit($vd-font-size--body-content);
+// $vd-textarea-unitless-line-height: to-fixed(($vd-textarea-leading / $vd-textarea-unitless-font-size), $digits: 5);
+// $vd-textarea-line-height: vd-px-unit($vd-textarea-unitless-font-size * $vd-textarea-unitless-line-height);
+$vd-textarea-line-height: 19.99995px;
+
+@mixin vd-input-text() {
+  color: vd-colour(text);
+  font-family: $vd-font-primary;
+  font-weight: $vd-font-weight--regular;
+  font-size: $vd-font-size--body-content;
+  word-break: normal;
+
+  &::placeholder {
+    color: vd-colour(supplementary);
+  }
+
+  &:disabled {
+    @include disabled();
+  }
+}
+
+@mixin vd-input-box-model ($vd-input-width: 100%) {
+  width: $vd-input-width;
+  margin: 0;
+  padding: $vd-input-padding;
+  box-sizing: border-box;
+  outline: none;
+}
+
+@mixin vd-input-states () {
+  box-shadow: none;
+  background-color: vd-colour(box);
+  border: vd-border(framing, $vd-input-border-width);
+  border-radius: $vd-border-radius;
+
+  transition: all $vd-time-s;
+  transition-property: border-color, box-shadow;
+
+  @include vd-input-focus();
+  @include vd-input-error();
+}
+
+@mixin vd-input-focus () {
+  &:focus, &.vd-focus {
+    border-color: $vd-colour-input-hover-border;
+    box-shadow: 0 0 $vd-shadow-blur $vd-colour-input-hover-border;
+  }
+}
+
+@mixin vd-input-error () {
+  @include vd-input-error-selectors () {
+    @include vd-input-error-styles();
+  }
+}
+
+@mixin vd-input-error-selectors () {
+  // @TODO Deprecate `.vd-input--error`.
+  &.vd-input--error,
+  &.vd-error,
+  &.invalid.dirty,
+  &.ng-invalid.ng-dirty,
+  .ng-submitted &.ng-invalid {
+    @content;
+  }
+}
+
+@mixin vd-input-error-styles () {
+  border-color: $vd-colour-input-error-border;
+
+  &:focus, &.vd-focus {
+    box-shadow: 0 0 $vd-shadow-blur $vd-colour-input-error-border;
+  }
+}
+
+@mixin vd-input {
+  cursor: text;
+  @include vd-input-text();
+  @include vd-input-box-model();
+  @include vd-input-states();
+}

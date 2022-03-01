@@ -1,0 +1,12 @@
+{
+  "name": "locales",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared translations",
+  "main": "index.js",
+  "scripts": {
+    "compile-locales": "node ./utils/jv2js-translate compile -s ./src -d ./dist"
+  },
+  "author": "Arata",
+  "license": "ISC"
+}

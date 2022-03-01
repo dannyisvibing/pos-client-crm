@@ -1,0 +1,116 @@
+.vd-hero-container {
+  display: flex;
+
+  @include vd-viewport-media-max(medium) {
+    flex-wrap: wrap;
+  }
+}
+
+// Hero
+.vd-hero {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: $vd-font-lato;
+  text-align: center;
+  padding: $vd-hero-paddding-vertical $vd-hero-padding-horizontal;
+  box-sizing: border-box;
+  background-color: vd-colour(box);
+
+  .vd-hero-container & {
+    @include vd-viewport-media-max(medium) {
+      flex-basis: 100%;
+    }
+  }
+}
+
+.vd-hero--transparent {
+  background-color: initial;
+}
+
+.vd-hero-content {
+  max-width: $vd-hero-content-max-width;
+  min-width: $vd-hero-content-min-width;
+
+  @include vd-viewport-media-max(xsmall) {
+    min-width: initial;
+  }
+}
+
+.vd-hero-headline {
+  @include vd-text-hero-headline;
+  max-width: $vd-hero-headline-max-width;
+  margin-bottom: $vd-hero-items-margin-vertical;
+}
+
+.vd-hero-intro {
+  @include vd-text-intro;
+  margin: 0;
+}
+
+.vd-hero-button {
+  margin: $vd-hero-items-margin-vertical 0 0;
+}
+
+// @include vd-colour-inverse-theme() {
+//   // Hero Auxiliary
+//   .vd-hero-aux {
+//     flex: 1;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+
+//     padding: vd-grid-unit(5);
+//     box-sizing: border-box;
+
+//     background-color: vd-colour(box);
+
+//     font-family: $vd-font-lato;
+//     color: vd-colour(text);
+//     text-align: center;
+//     font-size: $vd-font-size--body-content;
+
+//     .vd-hero-container & {
+//       flex: 0 0 $vd-hero-aux-width;
+
+//       @include vd-viewport-media-max(medium) {
+//         flex: 1;
+//       }
+//     }
+//   }
+
+//   .vd-hero-aux-headline {
+//     @include vd-text-hero-aux-headline;
+//     margin-left: auto;
+//     margin-right: auto;
+//     max-width: $vd-hero-aux-headline-max-width;
+//   }
+// }
+
+.vd-hero-aux-hr {
+  margin: $vd-hero-aux-content-margin auto;
+
+  border-top: 1px solid currentColor;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+
+  width: $vd-hero-aux-hr-width;
+}
+
+.vd-hero-aux-content {
+  @include font-smoothing;
+  @include vd-line-height(24, 15);
+
+  font-size: $vd-font-size--body-content;
+  max-width: $vd-hero-aux-content-max-width;
+  margin: 0 auto;
+}
+
+.vd-hero-aux-footer {
+  color: vd-colour(keyline);
+  margin-top: $vd-hero-aux-content-margin;
+}

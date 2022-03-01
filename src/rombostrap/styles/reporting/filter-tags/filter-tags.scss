@@ -1,0 +1,7 @@
+.tag-container {
+    @include autocomplete-container() {
+        &:before {
+            content: '\f0b0' !important;
+        }
+    }
+}

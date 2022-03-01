@@ -1,0 +1,264 @@
+table { border-collapse: collapse; }
+
+.vd-table {
+  width: 100%;
+  font-size: $vd-font-size--body-content;
+  border: 0;
+
+  thead {
+    @include vd-text(label);
+
+    th {
+      text-align: left;
+      padding: vd-grid-unit(4) vd-grid-unit(10) vd-grid-unit(4);
+    }
+
+    tr { border-color: vd-colour(keyline); }
+  }
+
+  tr {
+    border-bottom: vd-border(framing);
+
+    // The following two hover selectors have some nested table conditions.  This is to cater for a scenario
+    // where we might have a nested table where the table rows have links.  Without these selectors all links in
+    // a nested table would highlight instead of individual rows
+    a,
+    a:visited,
+    &:hover .vd-table a {
+      transition: color $vd-time-s;
+      color: vd-colour(text);
+    }
+
+    .vd-clickable {
+      display: block;
+      cursor: pointer;
+      transition: color $vd-time-s;
+
+      // The following is used to prevent individual hover effects triggering at different times
+      * {
+        color: currentColor !important;
+        transition: none;
+      }
+
+      &:hover { color: $vd-colour-text-link; }
+    }
+
+    // When the table row is hovered over, all the links highlight as links. Otherwise they just look like text.
+    a:hover,
+    .vd-table tr a:hover {
+      color: $vd-colour-text-link;
+    }
+
+    &:hover a.vd-flag { color: vd-colour(box); }
+
+    &.vd-disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    // Can be used for row's which display loading spinners, or 'no results' type content.
+    &.vd-inactive:hover { background-color: inherit; }
+
+    &.vd-error {
+      transition: background-color $vd-time-m ease-in-out;
+      background-color: $vd-colour-table-tr-error-background;
+    }
+
+    &.vd-no-border-b { border-bottom: none; }
+    &.vd-no-border-t { border-top: none; }
+    &.vd-no-border-l { border-left: none; }
+    &.vd-no-border-r { border-right: none; }
+
+    &.vd-border-t { border-top: vd-border(framing); }
+    &.vd-border-b { border-bottom: vd-border(framing); }
+
+    &.vd-med-pad-t,
+    &.vd-med-pad-v {
+      td { padding-top: vd-grid-unit(2); }
+    }
+
+    &.vd-med-pad-b,
+    &.vd-med-pad-v {
+      td { padding-bottom: vd-grid-unit(2); }
+    }
+
+    &.vd-sml-pad-t,
+    &.vd-sml-pad-v {
+      td { padding-top: vd-grid-unit(1); }
+    }
+
+    &.vd-sml-pad-b,
+    &.vd-sml-pad-v {
+      td { padding-bottom: vd-grid-unit(1); }
+    }
+
+    &.vd-valign-t td { vertical-align: top; }
+    &.vd-valign-b td { vertical-align: bottom; }
+
+    &.vd-expandable {
+      &:hover:not(.vd-expandable--nt) {
+        cursor: pointer;
+        background-color: $vd-colour-table-tr-hover-background;
+      }
+
+      & + tr,
+      &.vd-expandable--expanded {
+        background: vd-colour(box);
+
+        > td:first-child {
+          box-shadow: inset $vd-table-expanded-box-shadow-width 0 0 $vd-colour-table-expanded-border-left;
+        }
+      }
+
+      & + tr { display: none; }
+      &.vd-expandable--expanded + tr { display: table-row; }
+    }
+  }
+
+  td { vertical-align: middle; }
+
+  td, th {
+    padding: vd-grid-unit(5) vd-grid-unit(10);
+    position: relative;
+    white-space: normal;
+    word-break: break-word;
+
+    &.vd-tight {
+      white-space: nowrap;
+      width: 1%;
+    }
+
+    &.vd-truncate {
+      // Star selector is required for truncating text inside a cell wrapped in another tag: a, strong, span, etc...
+      &, * {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+
+    &.vd-sml-pad-h, &.vd-sml-pad-l { padding-left: vd-grid-unit(2); }
+    &.vd-sml-pad-h, &.vd-sml-pad-r { padding-right: vd-grid-unit(2); }
+    &.vd-no-pad-h,  &.vd-no-pad-l  { padding-left: 0; }
+    &.vd-no-pad-h,  &.vd-no-pad-r  { padding-right: 0; }
+    &.vd-no-pad-v,  &.vd-no-pad-b  { padding-bottom: 0; }
+    &.vd-no-pad-v,  &.vd-no-pad-t  { padding-top: 0; }
+
+    &.vd-valign-t { vertical-align: top; }
+    &.vd-valign-b { vertical-align: bottom; }
+  }
+
+  &.vd-table--data {
+    border: vd-border(framing);
+    tr { background-color: vd-colour(box); }
+  }
+}
+
+// Compact table
+// Note: Compact tables are deprecated
+.vd-table--compact {
+  thead {
+    th { padding: vd-grid-unit(4) vd-grid-unit(2); }
+  }
+
+  td {
+    padding: vd-grid-unit(4) vd-grid-unit(2);
+    font-size: $vd-table-compact-font-size;
+  }
+}
+
+.vd-table--fixed {
+  table-layout: fixed;
+
+  td {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+// Report table
+
+// Reset the td padding on nested report tables
+// 3px is to offset the expanded highlight bar
+.vd-table .vd-table-nested-report-container {
+  padding: 0 0 0 $vd-nested-reporting-table-container-offset;
+}
+
+// Reset the td padding on nested expanded tables
+// Used for tight alignment of nested tables
+.vd-table .vd-table-expanded-td-reset {
+  padding: 0 0 0 $vd-table-expanded-box-shadow-width;
+}
+
+.vd-table--report {
+  border: vd-border(framing);
+
+  > thead {
+    th {
+      padding: vd-grid-unit(4) vd-grid-unit(4);
+      background-color: vd-colour(box);
+    }
+
+    tr {
+      border: vd-border(framing);
+    }
+  }
+
+  // Limiting the selector to the first level of tr
+  // Doing this so if we have a nested table these styles would not apply
+  > tbody > tr {
+    border-bottom: none;
+
+    &:nth-child(odd) {
+      background-color: vd-colour(background);
+    }
+
+    &:nth-child(even) {
+      background-color: vd-colour(box);
+    }
+
+    > td {
+      padding: vd-grid-unit(4) vd-grid-unit(4);
+    }
+  }
+
+  > tfoot > tr > td {
+    padding: vd-grid-unit(4);
+  }
+
+  // Report table with expandable content
+  &.vd-table--expandable > tbody > tr {
+    &:nth-child(4n+3) {
+      background-color: vd-colour(box);
+    }
+  }
+
+  &.vd-table--report--nested {
+    &.vd-table {
+      margin-bottom: 0;
+    }
+
+    border-left: none;
+    border-right: none;
+
+    > tbody > tr {
+      &:nth-child(odd) {
+        background-color: vd-colour(background);
+      }
+
+      &:nth-child(even) {
+        background-color: vd-colour(box);
+      }
+    }
+
+    > tbody > tr > td:first-child {
+      padding-left: vd-grid-unit(4) - $vd-nested-reporting-table-container-offset;
+    }
+  }
+
+  &.vd-table--report--nested--indented {
+    > tbody > tr > td:first-child {
+      padding-left: (vd-grid-unit(4) - $vd-nested-reporting-table-container-offset) + $vd-nested-reporting-table-indent-padding;
+    }
+  }
+}

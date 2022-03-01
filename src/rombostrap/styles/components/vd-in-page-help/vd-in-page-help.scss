@@ -1,0 +1,61 @@
+.vd-in-page-help {
+  display: block;
+}
+
+.vd-in-page-help-section {
+  border-bottom: 1px solid vd-colour(framing);
+}
+
+.vd-in-page-help-container {
+  position: relative;
+}
+
+.vd-in-page-help-content {
+
+  @include vd-viewport-media-min(medium) {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
+.vd-in-page-help-content-item {
+
+  @include vd-viewport-media-min(medium) {
+    flex: 1;
+  }
+
+  &.vd-in-page-help-content-item--constrained {
+    flex-basis: 50%;
+    flex-grow: 0;
+
+    @include vd-viewport-media-max(medium) {
+      flex: 1 1 auto;
+    }
+  }
+
+  .vd-in-page-help-is-dismissible > & {
+    margin-right: 50px;
+  }
+}
+
+.vd-in-page-help-content-text {
+  min-width: 200px;
+  padding-top: 10px;
+}
+
+.vd-in-page-help-content-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include vd-viewport-media-min(medium) {
+    min-width: 500px;
+    min-height: 250px;
+  }
+}
+
+.vd-in-page-help-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

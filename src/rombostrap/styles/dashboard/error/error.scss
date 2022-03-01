@@ -1,0 +1,16 @@
+.ds-error-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.ds-error-image {
+  max-width: 290px;
+  width: 100%;
+  margin-bottom: vd-grid-unit(4);
+}
+
+.ds-error-content {
+  text-align: center;
+}

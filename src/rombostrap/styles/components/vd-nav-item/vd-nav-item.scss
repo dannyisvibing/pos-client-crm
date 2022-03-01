@@ -1,0 +1,30 @@
+.vd-nav-item {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.vd-nav-item-action {
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+
+  color: inherit;
+
+  // Overrides any base anchor styles
+  &:active,
+  &:focus,
+  &:hover {
+    color: inherit;
+  }
+}
+
+.vd-nav-item--disabled {
+  cursor: not-allowed;
+
+  .vd-nav-item-action {
+    pointer-events: none;
+  }
+}

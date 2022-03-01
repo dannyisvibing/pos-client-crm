@@ -1,0 +1,49 @@
+.vd-input {
+  @include vd-input;
+}
+
+.vd-input-error-message-section {
+  display: block;
+  margin-top: $vd-input-message-margin;
+  color: $vd-colour-text-negative;
+  font-size: $vd-font-size--body-sub-content;
+
+  .vd-input-error-message-text {
+    margin-left: $vd-input-message-margin / 2;
+  }
+}
+
+.vd-input--icon-left { padding-left: $vd-input-icon-padding; }
+.vd-input--icon-right { padding-right: $vd-input-icon-padding; }
+
+.vd-input-icon {
+  position: absolute;
+  top: 15px;
+  color: vd-colour(supplementary--text);
+  pointer-events: none;
+}
+
+.vd-input-icon--left { left: $vd-input-icon-position-h; }
+.vd-input-icon--right { right: $vd-input-icon-position-h; }
+
+.vd-input--text-align-right {
+  text-align: right;
+}
+
+.vd-input--text-align-left {
+  text-align: left;
+}
+.vd-input-symbol {
+  line-height: 1;
+}
+
+.vd-textarea {
+  display: block;
+  resize: none;
+  overflow: hidden;
+  line-height: $vd-textarea-line-height;
+}
+
+.vd-textarea--scrollable {
+  overflow: visible;
+}

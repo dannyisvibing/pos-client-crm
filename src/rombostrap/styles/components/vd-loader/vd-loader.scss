@@ -1,0 +1,56 @@
+$vd-loader-m: 20px;
+$vd-loader-s: 16px;
+$vd-loader-border: 2px;
+$vd-icon-height: 15px;
+$vd-i-bg-margin: vd-grid-unit(2);
+
+.vd-loader {
+  display: inline-block;
+  align-self: center;
+  width: $vd-loader-m;
+  height: $vd-loader-m;
+  border-radius: 50%;
+  border: $vd-loader-border solid vd-colour(do);
+  border-left-color: transparent;
+  @include vd-slow-rotate;
+
+  &.vd-loader--small {
+    width: $vd-loader-s;
+    height: $vd-loader-s;
+  }
+
+  .vd-button & {
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+    border-bottom-color: currentColor;
+  }
+}
+
+.vd-button {
+  .vd-loader--small {
+    margin: -3px 0 -3px 6px;
+    vertical-align: middle;
+  }
+}
+
+.vd-loader--input {
+  position: absolute;
+  top: 50%;
+  right: $vd-i-bg-margin;
+  z-index: 0;
+  margin-top: -(($vd-loader-m / 2) + $vd-loader-border);
+
+  &.vd-loader--small {
+    margin-top: -(($vd-loader-s / 2) + $vd-loader-border);
+  }
+}
+
+// Defaults to right
+.vd-i-bg {
+  position: absolute;
+  top: 50%;
+  right: $vd-i-bg-margin;
+  margin: auto;
+  transform: translate(0, -50%);
+  z-index: 0;
+ }

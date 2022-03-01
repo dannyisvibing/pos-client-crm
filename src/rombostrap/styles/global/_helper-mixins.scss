@@ -1,0 +1,29 @@
+@mixin remove-border-radius-left() {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+@mixin remove-border-radius-right() {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+@mixin vd-shadow() {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    z-index: -2;
+    top: 3em;
+    left: 1em;
+    right: 1em;
+    content: '';
+    bottom: 0px;
+    box-shadow: 0 0.1em 4em 0 vd-colour(shadow);
+  }
+}
+
+@mixin disabled() {
+  opacity: $vd-disabled-opacity;
+  filter: grayscale(100%);
+}

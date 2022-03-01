@@ -1,0 +1,73 @@
+// Visibility Helpers
+// @todo inline visbility helper classes
+
+// Show all the things
+@mixin responsive-visibility($selector) {
+  #{$selector} {
+    display: block !important;
+  }
+  table#{$selector}  { display: table !important; }
+  tr#{$selector}     { display: table-row !important; }
+  th#{$selector},
+  td#{$selector}     { display: table-cell !important; }
+}
+
+@mixin responsive-invisibility($selector) {
+  #{$selector} {
+    display: none !important;
+  }
+
+  // When using table-layout:fixed with responsive tables where we may hide columns, just using display:none will leave
+  // us with less columns but subsequent expanded rows with colspan will still be referencing the original table column
+  // count. With this solution we set the visibility as collaped but the column count remains intact. Therefore all
+  // subsequent expanded rows will remain at the same table width.
+  th#{$selector},
+  td#{$selector} {
+    display: table-cell !important;
+    white-space: nowrap !important;
+    visibility: collapse !important;
+    width: 0 !important;
+  }
+}
+
+// Responsive Visibile Helpers
+@include vd-viewport-media-max(xsmall) {
+  @include responsive-visibility('.vd-show-mobile');
+}
+
+@include vd-viewport-media-max(small) {
+  @include responsive-visibility('.vd-show-tablet-portrait');
+}
+
+@include vd-viewport-media-max(small) {
+  @include responsive-visibility('.vd-show-tablet-landscape');
+}
+
+@include vd-viewport-media-max(large) {
+  @include responsive-visibility('.vd-show-desktop');
+}
+
+// Responsive Invisibility Helpers
+@include vd-viewport-media-max(xsmall) {
+  @include responsive-invisibility('.vd-hide-mobile');
+}
+
+@include vd-viewport-media-max(small) {
+  @include responsive-invisibility('.vd-hide-tablet-portrait');
+}
+
+@include vd-viewport-media-max(medium) {
+  @include responsive-invisibility('.vd-hide-tablet-landscape');
+}
+
+@include vd-viewport-media-min(large) {
+  @include responsive-invisibility('.vd-hide-desktop');
+}
+
+// Print Helpers
+@include responsive-invisibility('.vd-show-print');
+
+@media print {
+  @include responsive-visibility('.vd-show-print');
+  @include responsive-invisibility('.vd-hide-print');
+}

@@ -1,0 +1,28 @@
+$vd-hero-padding-horizontal: vd-grid-unit(5) !default;
+$vd-hero-paddding-vertical: vd-grid-unit(12) !default;
+$vd-hero-items-margin-vertical: vd-grid-unit(5) !default;
+
+$vd-hero-content-max-width: 80% !default;
+$vd-hero-content-min-width: 300px !default;
+$vd-hero-headline-max-width: 90% !default;
+
+$vd-hero-aux-content-margin: vd-grid-unit(3) !default;
+$vd-hero-aux-headline-max-width: 90% !default;
+$vd-hero-aux-content-max-width: 90% !default;
+$vd-hero-aux-hr-width: 80px !default;
+$vd-hero-aux-width: 33.33333% !default;
+
+// Hero Auxiliary Headline
+@mixin vd-text-hero-aux-headline () {
+  @include vd-text(intro);
+  font-weight: $vd-font-weight--bold;
+}
+
+// Hero Headline
+@mixin vd-text-hero-headline () {
+  @include vd-heading-reset();
+  @include vd-line-height(42, 35);
+  @include font-smoothing;
+
+  font-size: $vd-font-size--page-header;
+}

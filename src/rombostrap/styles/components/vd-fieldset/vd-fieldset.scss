@@ -1,0 +1,19 @@
+.vd-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+
+  + .vd-fieldset {
+    margin-top: $vd-section-padding-v;
+  }
+}
+
+.vd-legend {
+  padding: 0 0 vd-grid-unit(2);
+  margin: 0 0 vd-grid-unit(4);
+  font-size: $vd-font-size--subsection-header;
+  font-weight: $vd-font-weight--bold;
+  border-bottom: 1px solid vd-colour(keyline);
+  width: 100%;
+}

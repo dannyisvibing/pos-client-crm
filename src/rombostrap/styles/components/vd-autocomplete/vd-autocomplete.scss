@@ -1,0 +1,31 @@
+.vd-autocomplete-input-container {
+  position: relative;
+  display: flex;
+
+  @include vd-input-error-selectors () {
+    .vd-autocomplete-input {
+      @include vd-input-error-styles();
+    }
+  }
+}
+
+.vd-autocomplete-input-typeahead {
+  @include vd-input-box-model($vd-input-width: auto);
+  @include vd-input-text();
+
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  opacity: 1;
+  color: vd-colour(supplementary--text);
+  pointer-events: none;
+  user-select: none;
+
+  .vd-input--icon-left + & {
+    padding-left: $vd-input-icon-padding;
+  }
+}
+
+.vd-autocomplete-input-typeahead-match {
+  visibility: hidden;
+}

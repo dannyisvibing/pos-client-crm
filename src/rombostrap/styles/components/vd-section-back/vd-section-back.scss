@@ -1,0 +1,21 @@
+.vd-section-back {
+  border-radius: $vd-section-back-height / 2;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  left: -33px;
+  top: 12px;
+
+  .vd-section-back-icon {
+    display: block;
+    color: vd-colour(keyline);
+    font-size: $vd-section-back-icon-font-size;
+    transition: all $vd-time-s;
+    transition-property: margin-left, color;
+
+    &:hover {
+      color: $vd-colour-primary;
+      margin-left: -2px;
+    }
+  }
+}

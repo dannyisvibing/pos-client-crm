@@ -1,0 +1,10 @@
+.vd-sidebar {
+  display: flex;
+  position: relative;
+
+  flex-shrink: 0;
+  height: calc(100% - #{$vd-topbar-height});
+  box-sizing: border-box;
+  font-family: $vd-font-primary;
+  line-height: $vd-base-line-height;
+}

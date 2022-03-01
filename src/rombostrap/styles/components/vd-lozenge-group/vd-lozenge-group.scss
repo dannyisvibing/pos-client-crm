@@ -1,0 +1,37 @@
+@keyframes vd-lozenge-group-already-added {
+  from               { transform: scale3d(1, 1, 1); }
+  10%, 20%           { transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg); }
+  30%, 50%, 70%, 90% { transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, 3deg); }
+  40%, 60%, 80%      { transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, -3deg); }
+  to                 { transform: scale3d(1, 1, 1); }
+}
+
+// Common styles for an input and selected lozenge group. See vd-tag-input and vd-autocomplete-multi.
+.vd-lozenge-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  cursor: text;
+
+  @include vd-input-states();
+
+  .vd-lozenge {
+    margin-left: vd-grid-unit(1);
+    margin-top: vd-grid-unit(1);
+
+    &.vd-lozenge-group-already-added {
+      animation-name: vd-lozenge-group-already-added;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+    }
+  }
+
+  .vd-lozenge-group-input  {
+    @include vd-input-text();
+    @include vd-input-box-model();
+    background-color: transparent;
+    border: none;
+    flex-grow: 1;
+  }
+}
+

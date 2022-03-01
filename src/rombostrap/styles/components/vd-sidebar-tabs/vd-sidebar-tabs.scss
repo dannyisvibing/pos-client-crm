@@ -1,0 +1,84 @@
+@mixin vd-sidebar-tab-colour ($colour) {
+  .vd-nav-item-icon { color: $colour; }
+
+  &.vd-nav-item--active,
+  &.vd-nav-item--pending {
+    border-color: $colour;
+  }
+}
+
+.vd-sidebar-tabs {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  z-index: $vd-z-index-content-base + 1;
+
+  box-sizing: border-box;
+  width: $vd-sidebar-tabs-desktop-width;
+  height: 100%;
+
+  background-color: $vd-sidebar-tabs-background-color;
+  box-shadow: $vd-sidebar-tabs-box-shadow;
+
+  font-size: $vd-sidebar-tab-font-size;
+  color: vd-colour(text);
+
+  .vd-nav-item {
+    flex-shrink: 0;
+    height: $vd-sidebar-tab-height;
+    width: 100%;
+
+    &:hover {
+      background: vd-colour(background);
+    }
+  }
+
+  .vd-nav-item-action {
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .vd-nav-item--active {
+    background: vd-colour(box);
+  }
+
+  .vd-nav-item--pending {
+    background: vd-colour(background);
+  }
+
+  .vd-nav-item--disabled {
+    opacity: 0.35;
+    filter: grayscale(100%);
+
+    &:hover {
+      background-color: inherit;
+    }
+  }
+
+  .vd-nav-item-label {
+    font-weight: $vd-font-weight--bold;
+  }
+
+  .vd-nav-item-icon {
+    font-size: $vd-sidebar-tab-icon-font-size;
+  }
+
+  // Deprecated Nav Colours
+  .vd-nav-item--ocean-green { @include vd-sidebar-tab-colour($colour-ocean-green); }
+  .vd-nav-item--shakespeare { @include vd-sidebar-tab-colour($colour-shakespeare); }
+  .vd-nav-item--rajah       { @include vd-sidebar-tab-colour($colour-rajah); }
+  .vd-nav-item--carnation   { @include vd-sidebar-tab-colour($colour-carnation); }
+  .vd-nav-item--wistera     { @include vd-sidebar-tab-colour($colour-wistera); }
+
+  // New Nav Colours
+  .vd-nav-item--java        { @include vd-sidebar-tab-colour($colour-java); }
+  .vd-nav-item--waterloo    { @include vd-sidebar-tab-colour($colour-waterloo); }
+  .vd-nav-item--di-serria   { @include vd-sidebar-tab-colour($colour-di-serria); }
+  .vd-nav-item--pharlap     { @include vd-sidebar-tab-colour($colour-pharlap); }
+  .vd-nav-item--blue-chill  { @include vd-sidebar-tab-colour($colour-blue-chill); }
+  .vd-nav-item--puce        { @include vd-sidebar-tab-colour($colour-puce); }
+  .vd-nav-item--fiord       { @include vd-sidebar-tab-colour($colour-fiord); }
+  .vd-nav-item--roman       { @include vd-sidebar-tab-colour($colour-roman); }
+
+}

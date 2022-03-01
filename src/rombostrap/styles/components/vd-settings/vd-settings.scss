@@ -1,0 +1,8 @@
+.vd-grid-settings-item {
+  padding-right: $vd-settings-padding;
+
+  @include vd-viewport-media-max ($vd-breakpoint-small) {
+    padding-right: 0;
+    padding-bottom: $vd-settings-padding;
+  }
+}

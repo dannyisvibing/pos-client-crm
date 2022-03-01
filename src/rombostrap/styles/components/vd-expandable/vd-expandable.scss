@@ -1,0 +1,11 @@
+.vd-expandable-content {
+    transition: max-height $vd-time-s;
+    overflow: hidden;
+    max-height: 0;
+  
+    .vd-expandable--expanded > & {
+      max-height: 1000px;
+      transition-duration: $vd-time-l;
+    }
+  }
+  

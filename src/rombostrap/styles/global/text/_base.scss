@@ -1,0 +1,20 @@
+$vd-font-weight--thin: 100;
+$vd-font-weight--light: 300;
+$vd-font-weight--regular: 400;
+$vd-font-weight--bold: 700;
+$vd-font-weight--ultra-bold: 900;
+
+$vd-font-lato: lato, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$vd-font-src: './styles/global/text/fonts/' !default;
+$vd-font-primary: $vd-font-lato !default;
+
+/// @TODO
+$vd-font-size--page-header: 35px !default;
+$vd-font-size--subpage-header: 24px !default;
+$vd-font-size--section-header: 18px !default;
+$vd-font-size--section-intro: 18px !default;
+$vd-font-size--subsection-header: 16px !default;
+$vd-font-size--body-content: 15px !default;
+$vd-font-size--body-sub-content: 12px !default;
+
+$vd-base-line-height: normal !default;

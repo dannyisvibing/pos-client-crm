@@ -1,0 +1,15 @@
+.vd-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: $vd-action-bar--min-height;
+  background-color: $vd-action-bar-background-colour;
+
+  @include vd-viewport-media-max ($vd-breakpoint-small) {
+    flex-wrap: wrap;
+  }
+}
+
+.vd-action-bar--inline {
+  padding: $vd-action-bar--inline-padding;
+}

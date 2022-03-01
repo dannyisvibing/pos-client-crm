@@ -1,0 +1,21 @@
+// Generates a helper class for each text defintion
+// e.g. .vd-text-heading { font-size: 24px; ... }
+@each $name, $style in $_vd-text-definitions {
+  .vd-text-#{$name} {
+    @include vd-text($name);
+  }
+}
+
+// Helper class implementing the vd-truncate mixin
+.vd-text-truncate {
+  @include vd-truncate();
+}
+
+// Helper class implementing white-space: nowrap
+.vd-no-wrap {
+  white-space: nowrap;
+}
+
+.vd-text--sub {
+  font-size: 12px;
+}

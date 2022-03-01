@@ -1,0 +1,11 @@
+@include vd-build-grid();
+
+// Large gutter
+.vd-g-row--gutter-l {
+  margin: -($vd-grid-row-gutter-large / 2);
+  max-width: $vd-section-wrap-max-width + $vd-grid-row-gutter-large;
+
+  > .vd-g-col {
+    padding: $vd-grid-row-gutter-large / 2;
+  }
+}

@@ -1,0 +1,8 @@
+.vd-countdown {
+  margin-top: $vd-input-message-margin;
+  font-size: $vd-font-size--body-sub-content;
+
+  &:not(.vd-text--negative) {
+    color: vd-colour(supplementary--text);
+  }
+}

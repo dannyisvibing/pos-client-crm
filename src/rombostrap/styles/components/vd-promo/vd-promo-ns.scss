@@ -1,0 +1,11 @@
+$vd-promos-spacing: vd-grid-unit(3) !default;
+$vd-promo-image-container-min-height: 100px !default;
+
+// Promo Headline
+@mixin vd-promo-headline () {
+  @include vd-heading-reset();
+  @include vd-line-height(30, 24);
+  @include font-smoothing;
+
+  font-size: $vd-font-size--subpage-header;
+}

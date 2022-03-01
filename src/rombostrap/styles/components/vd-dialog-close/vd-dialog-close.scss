@@ -1,0 +1,94 @@
+// Dialog Close Button Defaults
+.vd-dialog-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: -($vd-dialog-close-width + $vd-dialog-close-button-anchor-padding);
+  cursor: pointer;
+  font-size: $vd-dialog-close-font-size;
+  width: $vd-dialog-close-width;
+  height: $vd-dialog-close-width;
+
+  .vd-dialog-close-button {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: vd-colour(box);
+    border-radius: $vd-dialog-close-border-radius;
+    color: vd-colour(supplementary--text);
+    padding: $vd-dialog-close-button-anchor-padding;
+    text-decoration: none;
+  }
+
+  .vd-dialog-close-icon {
+    opacity: 0.5;
+  }
+
+  &:hover {
+    .vd-dialog-close-icon {
+      opacity: 1;
+    }
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 3px 1px $vd-dialog-close-focus-border-colour;
+  }
+
+  @include vd-viewport-media-max ($vd-breakpoint-small) {
+    top: -($vd-dialog-close-width + ($vd-dialog-close-button-anchor-padding / 2));
+    right: $vd-dialog-close-button-anchor-padding / 2;
+  }
+}
+
+// Dialog Close Button 'Drawer' Modifier
+.vd-dialog-close--drawer {
+  top: 10px;
+  left: -$vd-dialog-close-width - 10px;
+
+  @include vd-viewport-media-max ($vd-breakpoint-small) {
+    top: 0;
+    right: 0;
+    left: inherit;
+  }
+}
+
+.vd-dialog-close-label {
+  position: absolute;
+  top: $vd-dialog-close-width;
+  padding: $vd-dialog-close-text-padding 0;
+  margin: 0;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  color: vd-colour(box);
+  font-size: $vd-dialog-close-text-font-size;
+
+  @include vd-viewport-media-max(small) {
+    display: none;
+  }
+}
+
+// Dialog Close Button 'Inverse' Modifier
+// .vd-dialog-close--inverse {
+//   .vd-dialog-close-button {
+//     @include vd-colour-inverse-theme() {
+//       background: vd-colour(supplementary);
+//       color: vd-colour(text, dark);
+//     }
+//   }
+
+//   .vd-dialog-close-icon {
+//     opacity: 1;
+//   }
+
+//   .vd-dialog-close-label {
+//     color: vd-colour(text);
+//     opacity: 0.5;
+//   }
+// }

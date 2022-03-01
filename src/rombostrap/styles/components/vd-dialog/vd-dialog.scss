@@ -1,0 +1,166 @@
+.vd-dialog {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  // This element creates an invisible mask to position the dialog modal. Disable click events so they can fall through
+  // to the overlay.
+  pointer-events: none;
+
+  display: flex;
+  align-items: center;
+
+  @include vd-viewport-media-max ($vd-breakpoint-small) {
+    left: vd-grid-unit(1);
+    right: vd-grid-unit(1);
+  }
+
+  @include vd-viewport-media-max ($vd-breakpoint-xsmall) {
+    left: vd-grid-unit(0);
+    right: vd-grid-unit(0);
+  }
+
+  // *****  Dialog Banner  ***** //
+  .vd-dialog-banner {
+    display: block;
+    margin: (-$vd-dialog-spacing) (-$vd-dialog-spacing) $vd-dialog-spacing;
+    border-top-left-radius: $vd-border-radius;
+    border-top-right-radius: $vd-border-radius;
+
+    .vd-banner-wrapper {
+      justify-content: flex-start;
+    }
+
+    @include vd-viewport-media-max ($vd-breakpoint-xsmall) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      flex: 0 1 auto;
+      margin: (-$vd-dialog-spacing--mobile) (-$vd-dialog-spacing--mobile) $vd-dialog-spacing--mobile;
+    }
+  }
+}
+
+// *****  Dialog Container  ***** //
+
+// Container Defaults
+.vd-dialog-container {
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: $vd-dialog-spacing;
+
+  background: vd-colour(box);
+  border-radius: $vd-border-radius;
+  display: flex;
+  flex-direction: column;
+
+  min-height: $vd-dialog-container-min-height;
+  max-height: calc(95vh - #{$vd-dialog-container-top-offset});
+
+  width: calc(90% - #{$vd-dialog-close-width});
+  // Enables default click events for the container child elements
+  pointer-events: auto;
+
+  &:focus {
+    outline: 1px solid $vd-dialog-container-focus-colour;
+  }
+
+  @include vd-viewport-media-max ($vd-breakpoint-small) {
+    max-width: none;
+    width: 100%;
+    margin-top: $vd-dialog-container-top-offset;
+  }
+
+  @include vd-viewport-media-max ($vd-breakpoint-xsmall) {
+    max-height: none;
+    height: calc(100vh - #{$vd-dialog-container-top-offset});
+
+    border-radius: 0;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    padding: $vd-dialog-spacing--mobile;
+  }
+}
+
+// Dialog Container Size Modifiers
+@each $_vd-dialog-container-size in $vd-dialog-container-sizes {
+  .vd-dialog-container--size-#{nth($_vd-dialog-container-size, 1)} {
+    max-width: nth($_vd-dialog-container-size, 2);
+  }
+}
+
+// *****  Dialog Header  ***** //
+
+.vd-dialog-header {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+
+  margin-bottom: $vd-dialog-spacing;
+}
+
+.vd-dialog-header--center {
+  text-align: center;
+
+  @include vd-viewport-media-max ($vd-breakpoint-xsmall) {
+    text-align: left;
+  }
+}
+
+.vd-dialog-header-sub {
+  font-size: $vd-font-size--section-header;
+  padding-left: $vd-dialog-header-sub-padding;
+
+  @include vd-viewport-media-max ($vd-breakpoint-xsmall) {
+    display: block;
+    padding-left: 0;
+    padding-top: $vd-dialog-header-sub-padding;
+  }
+}
+
+.vd-dialog-header-meta {
+  color: vd-colour(supplementary--text);
+  font-size: $vd-font-size--body-sub-content;
+  margin-top: $vd-dialog-header-margin;
+}
+
+.vd-dialog-header-divider {
+  width: $vd-dialog-header-divider-width;
+  margin: ($vd-dialog-header-margin * 2) auto 0;
+  border: none;
+  border-top: 1px solid vd-colour(keyline);
+}
+
+// *****  Dialog Content  ***** //
+
+.vd-dialog-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  // Push out content so overflow scrollbars are flush against edge but still maintains padding
+  margin: 0 (-$vd-dialog-spacing);
+  padding: 0 $vd-dialog-spacing;
+
+  @include vd-viewport-media-max ($vd-breakpoint-xsmall) {
+    margin: 0 (-$vd-dialog-spacing--mobile);
+    padding: 0 $vd-dialog-spacing--mobile;
+  }
+}
+
+// *****  Dialog Actions (footer)  ***** //
+
+.vd-dialog-actions {
+  text-align: right;
+  flex-shrink: 0;
+
+  .vd-dialog-content + & {
+    margin-top: $vd-dialog-spacing;
+  }
+
+  @include vd-viewport-media-max ($vd-breakpoint-xsmall) {
+    text-align: center;
+  }
+}

@@ -1,0 +1,15 @@
+.autocomplete-container {
+    @include autocomplete-container() {
+        &:before {
+            content: '\f002' !important;
+        }
+    }
+
+    .option-category {
+        color: $colour-loblolly
+    }
+}
+
+.autocomplete--with-name {
+    flex-grow: 8;
+}

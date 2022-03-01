@@ -1,0 +1,58 @@
+.vd-toast-notification-container {
+  @include vd-reset;
+
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: $vd-toast-notification-z-index;
+
+  display: block;
+
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform ease-in-out $vd-time-m, opacity ease-in-out $vd-time-m;
+  pointer-events: none;
+
+  &.vd-visible {
+    transform: translateY($vd-toast-notification-offset / 2);
+    opacity: 1;
+  }
+}
+
+.vd-toast-notification {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: calc(100% - #{$vd-toast-notification-offset});
+  max-width: vd-grid-unit(170);
+  margin: 0 auto;
+  padding: $vd-toast-notification-padding-v $vd-toast-notification-padding-h;
+
+  border-radius: $vd-border-radius;
+  box-sizing: border-box;
+  color: vd-colour(text, dark);
+  text-align: center;
+
+  transition: opacity ease-in-out $vd-time-m;
+  pointer-events: auto;
+}
+
+.vd-toast-notification-dismiss {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $vd-toast-notification-padding-h;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover { cursor: pointer; }
+}
+
+.vd-toast-notification--success  { background-color: vd-colour(do); }
+.vd-toast-notification--negative { background-color: vd-colour(no); }

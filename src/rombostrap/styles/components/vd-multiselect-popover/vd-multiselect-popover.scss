@@ -1,0 +1,45 @@
+$vd-multiselect-popover-input-icon-padding: vd-grid-unit(6);
+$vd-multiselect-popover-hr-margin: vd-grid-unit(2) vd-grid-unit(6);
+
+.vd-multiselect-popover-input {
+  cursor: pointer;
+}
+
+.vd-multiselect-popover-hr {
+  margin: $vd-multiselect-popover-hr-margin;
+  width: inherit;
+}
+
+.vd-multiselect-popover-container {
+  display: block;
+
+  .vd-input-icon {
+    padding-right: $vd-multiselect-popover-input-icon-padding;
+    color: vd-colour(text);
+  }
+
+  @include vd-input-error-selectors () {
+    .vd-multiselect-popover-input {
+      @include vd-input-error-styles();
+    }
+  }
+}
+
+.vd-multiselect-popover-content-container {
+  max-width: $vd-field-short-max-width;
+
+  .vd-checkbox-input-container {
+    align-items: flex-start;
+  }
+
+  .vd-popover-content {
+    // The 40px is the approximate distance between the middle of the triggering component and the start of the list
+    max-height: calc(50vh - 40px);
+    overflow-y: auto;
+    overflow-x: none;
+  }
+
+  .vd-popover-list-item {
+    cursor: pointer;
+  }
+}

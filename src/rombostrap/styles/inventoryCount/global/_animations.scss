@@ -1,0 +1,38 @@
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($animation-rule) {
+    -webkit-animation: $animation-rule;
+    animation: $animation-rule;
+}
+
+@include keyframes(fade-in) {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@include keyframes(element-shake) {
+    0%, 100% {
+        left: 0;
+    }
+
+    20%, 60% {
+        left: 6px;
+    }
+
+    40%, 80% {
+        left: -6px;
+    }
+}

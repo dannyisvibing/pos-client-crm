@@ -1,0 +1,23 @@
+$ds-user-perf-section-spacing: vd-grid-unit(9);
+
+.ds-user-perf-totals {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include vd-viewport-media-max(small) {
+    margin-bottom: $ds-user-perf-section-spacing;
+  }
+}
+
+.ds-user-perf-targets {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: $ds-user-perf-section-spacing;
+}
+
+.ds-user-perf-chart-title {
+  text-transform: capitalize;
+}

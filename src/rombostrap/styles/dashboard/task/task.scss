@@ -1,0 +1,23 @@
+$ds-task-new-inset: ($vd-grid-row-gutter-large / 2) + vd-grid-unit(1);
+
+ds-task {
+  position: relative;
+
+  transition-duration: 0.4s;
+  transition-property: max-height, transform, opacity;
+  max-height: 100vh;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.ds-task--new {
+  max-height: 0;
+  transform: scale(0.6);
+  opacity: 0;
+}
+
+.ds-task-new-flag {
+  position: absolute;
+  top: $ds-task-new-inset;
+  right: $ds-task-new-inset;
+}

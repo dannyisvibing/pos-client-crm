@@ -1,0 +1,38 @@
+.vd-lozenge {
+  @include vd-text(body);
+
+  padding: 6px 10px;
+  color: vd-colour(supplementary--text);
+  background-color: vd-colour(framing);
+  border-radius: $vd-border-radius;
+  display: inline-block;
+  margin-right: 3px;
+  margin-bottom: 3px;
+
+  .vd-lozenge-label {
+    text-transform: capitalize;
+  }
+
+  .vd-lozenge-value {
+    font-weight: $vd-font-weight--bold;
+  }
+
+  .vd-lozenge-delete {
+    margin-left: 6px;
+    cursor: pointer;
+  }
+}
+
+.vd-lozenge--interactive {
+  // @include vd-colour-inverse-theme() {
+  //   color: vd-colour(text);
+  // }
+
+  color: #fff;
+  background-color: vd-colour(supplementary);
+}
+
+.vd-lozenge--disabled {
+  @include disabled;
+  pointer-events: none;
+}

@@ -1,0 +1,42 @@
+@mixin vd-banner($primary-colour, $text-colour: vd-colour(text, dark), $anchor-colour: vd-colour(text, dark)) {
+  background-color: $primary-colour;
+  color: $text-colour;
+  border: none;
+  border-left: none;
+  border-right: none;
+
+  .vd-link,
+  .vd-link:visited {
+    color: $anchor-colour;
+    text-decoration: underline;
+  }
+}
+
+.vd-banner-wrapper {
+  padding: vd-grid-unit(5);
+}
+
+.vd-banner-feedback {
+  padding: vd-grid-unit(5);
+  background-color: darken( vd-colour(do), 5% );
+}
+
+.vd-banner-content {
+  display: inline-block;
+}
+
+.vd-banner {
+  display: flex;
+  font-size: $vd-font-size--body-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.vd-banner--info     { @include vd-banner(vd-colour(go)) }
+.vd-banner--negative { @include vd-banner(vd-colour(no)) }
+.vd-banner--success  { @include vd-banner(vd-colour(do)) }
+.vd-banner--warning  { @include vd-banner($vd-colour-warning) }
+
+.vd-banner--activation {
+  @include vd-banner($vd-colour-banner-activation-background, vd-colour(text, light), vd-colour(go))
+}

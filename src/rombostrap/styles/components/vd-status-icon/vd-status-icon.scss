@@ -1,0 +1,12 @@
+.vd-status-icon {
+  border-radius: 50%;
+  background-color: vd-colour(do);
+  width: $vd-status-icon-size;
+  height: $vd-status-icon-size;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.vd-status-icon--negative {
+  background-color: vd-colour(no);
+}

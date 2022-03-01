@@ -1,0 +1,32 @@
+.vd-topbar {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $vd-header-height;
+    box-sizing: border-box;
+    background-color: $vd-header-bgcolor;
+    line-height: normal;
+    color: #fff;
+
+    .vd-nav-item-action {
+        padding: 0 $vd-topbar-item-side-padding;
+        opacity: $vd-topbar-item-default-opactiy;
+    
+        &:hover {
+            opacity: 1;
+        }
+    }
+    
+    // .vd-nav-item-icon + .vd-nav-item-label {
+    //     margin-left: $vd-topbar-item-label-margin-left;
+    // }
+    
+    .vd-nav-item-label {
+        max-width: $vd-topbar-item-label-max-width;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}

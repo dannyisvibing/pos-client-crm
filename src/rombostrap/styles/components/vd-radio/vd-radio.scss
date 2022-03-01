@@ -1,0 +1,123 @@
+@keyframes vd-radio-checked {
+  0%  { transform: scale(0); }
+  33% { transform: scale(1.8); }
+  66% { transform: scale(1); }
+}
+
+.vd-radio {
+  display: inline-block;
+  position: relative;
+  margin: 0 vd-grid-unit(1);
+
+  &:first-child { margin-left: 0 }
+  &:last-child  { margin-right: 0 }
+}
+
+.vd-radio-container {
+  margin-bottom: vd-grid-unit(3);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  cursor: pointer;
+
+  &:last-child  { margin-bottom: 0 }
+}
+
+.vd-radio-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.vd-radio-label { margin-left: vd-grid-unit(3); }
+
+.vd-radio-description {
+  @include vd-text(supplementary);
+  margin-top: vd-grid-unit(2);
+  margin-left: $vd-radio-length + vd-grid-unit(3);
+}
+
+
+.vd-radio-input { @extend %vd-invisible-checkbox-input; }
+
+.vd-radio-tick {
+  flex-shrink: 0;
+  display: inline-block;
+  position: relative;
+  height: $vd-radio-length;
+  width: $vd-radio-length;
+  border-radius: 50%;
+  background-color: vd-colour(box);
+  border: vd-border(framing, 2px);
+  box-sizing: border-box;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: $vd-radio-tick-length;
+    width: $vd-radio-tick-length;
+    border-radius: 50%;
+    background-color: vd-colour(framing);
+    opacity: 0;
+    left: $vd-radio-tick-position;
+    top: $vd-radio-tick-position;
+    transition: opacity $vd-time-s;
+  }
+}
+
+.vd-radio--large {
+  .vd-radio-tick {
+    height: $vd-radio-length--large;
+    width: $vd-radio-length--large;
+
+    &:after {
+      height: $vd-radio-tick-length--large;
+      width: $vd-radio-tick-length--large;
+      left: $vd-radio-tick-position--large;
+      top: $vd-radio-tick-position--large;
+    }
+  }
+  .vd-radio-description {
+    margin-left: $vd-radio-length--large + vd-grid-unit(3);
+  }
+}
+
+.vd-radio-input:hover + .vd-radio-tick:after { opacity: 1; }
+
+// Checked
+.vd-radio-input:checked + .vd-radio-tick {
+  transition: background-color $vd-time-l;
+
+  .vd-radio--primary   & { background-color: vd-colour(do); border-color: vd-colour(do); }
+  .vd-radio--secondary & { background-color: vd-colour(supplementary); border-color: vd-colour(supplementary); }
+
+  &:after {
+    opacity: 1;
+    animation: vd-radio-checked $vd-time-l;
+    background-color: vd-colour(text, dark);
+    box-sizing: content-box;
+    backface-visibility: hidden;
+  }
+}
+
+// Disabled
+.vd-radio.vd-disabled .vd-radio-input,
+.vd-radio-input:disabled {
+  cursor: not-allowed;
+  filter: grayscale(100%);
+
+  &:hover + .vd-radio-tick:after { opacity: 0; }
+  &:hover:checked + .vd-radio-tick:after {
+    opacity: 1;
+    background-color: vd-colour(box);
+  }
+
+  ~ .vd-radio-label {
+    opacity: $vd-disabled-opacity;
+  }
+
+  &:checked ~ .vd-radio-tick {
+    filter: grayscale(100%);
+    opacity: $vd-disabled-opacity;
+  }
+}

@@ -1,0 +1,14 @@
+.vd-hr {
+  margin: vd-grid-unit(5) auto;
+  width: 100%;
+  max-width: $vd-section-wrap-max-width;
+  border-top: 1px solid vd-colour(keyline);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+.vd-hr--full {
+  width: 100%;
+  max-width: 100%;
+}

@@ -1,0 +1,143 @@
+// Position the popover beak appropriately on the specified edge
+@mixin position-popover-beak($edge: top, $offset: 50%, $box-shadow: none) {
+  $edge-index: index((top, right, bottom, left), $edge);
+  $opposite-edge: nth((bottom, left, top, right), $edge-index);
+  $next-edge: nth((right, bottom, left, top), $edge-index);
+  $direction: nth((left, top, left, top), $edge-index);
+
+  .vd-popover-beak {
+    #{$edge}: 0;
+    #{$direction}: $offset;
+    margin-#{$edge}: -$vd-popover-beak-size / 2;
+    margin-#{$direction}: -$vd-popover-beak-size / 2;
+    border-#{$next-edge}-color: transparent;
+    border-#{$opposite-edge}-color: transparent;
+    box-shadow: $box-shadow;
+  }
+}
+
+.vd-popover-container {
+  @include vd-reset;
+
+  display: none;
+  position: relative;
+  z-index: $vd-popover-z-index;
+  will-change: transform;
+
+  &.vd-popover-tether-enabled {
+    display: inline-block;
+  }
+
+  &.vd-popover-tether-element-attached-top.vd-popover-tether-target-attached-bottom {
+    padding-top: $vd-popover-trigger-spacing;
+    @include position-popover-beak(top, $offset: $vd-popover-spacing, $box-shadow: none);
+
+    &.vd-popover-tether-element-attached-center .vd-popover-beak {
+      left: 50%;
+    }
+  }
+
+  &.vd-popover-tether-element-attached-bottom.vd-popover-tether-target-attached-top {
+    padding-bottom: $vd-popover-trigger-spacing;
+    @include position-popover-beak(bottom, $offset: $vd-popover-spacing, $box-shadow: 3px 3px 5px vd-colour(shadow));
+
+    &.vd-popover-tether-element-attached-center .vd-popover-beak {
+      left: 50%;
+    }
+  }
+
+  &.vd-popover-tether-element-attached-right.vd-popover-tether-target-attached-left {
+    padding-right: $vd-popover-trigger-spacing;
+    @include position-popover-beak(right, $offset: 50%, $box-shadow: 3px 0 5px vd-colour(shadow));
+  }
+
+  &.vd-popover-tether-element-attached-left.vd-popover-tether-target-attached-right {
+    padding-left: $vd-popover-trigger-spacing;
+    @include position-popover-beak(left, $offset: 50%, $box-shadow: 3px 3px 5px vd-colour(shadow));
+  }
+}
+
+.vd-popover-container--inside-modal {
+  z-index: $vd-popover-inside-modal-z-index;
+}
+
+.vd-popover {
+  position: relative;
+  border: 1px solid vd-colour(framing);
+  border-radius: $vd-popover-border-radius;
+  box-shadow: $vd-box-shadow;
+  background-color: vd-colour(box);
+
+  .vd-popover-tether-pinned-bottom & {
+    margin-bottom: $vd-popover-beak-size;
+  }
+
+  .vd-popover-tether-pinned-top & {
+    margin-top: $vd-popover-beak-size;
+  }
+}
+
+.vd-popover-content {
+  position: relative;
+  box-sizing: border-box;
+  border-radius: $vd-popover-border-radius;
+  background-color: vd-colour(box);
+  z-index: 1;
+  padding: $vd-popover-spacing;
+}
+
+.vd-popover-actions:not(:empty) {
+  margin: -1px;
+
+  .vd-action-bar {
+    position: relative;
+    z-index: 1;
+    border-radius: 0 0 $vd-popover-border-radius $vd-popover-border-radius;
+    border: 1px solid transparent;
+    padding-left: $vd-popover-spacing;
+    padding-right: $vd-popover-spacing;
+  }
+}
+
+.vd-popover-beak {
+  box-sizing: border-box;
+  position: absolute;
+  height: $vd-popover-beak-size;
+  width: $vd-popover-beak-size;
+  background-color: vd-colour(box);
+  border: 1px solid vd-colour(framing);
+  transform: rotate(45deg);
+
+  // If there is a vd-action-bar present and the beak is at the bottom it should be the same colour as the action bar
+  .vd-popover-tether-element-attached-bottom.vd-popover-tether-target-attached-top .vd-popover-actions:not(:empty) ~ & {
+    background-color: $vd-action-bar-background-colour;
+  }
+
+  // Don't display the beak if the popover has been pinned to the edge of the scroll container as we can't guarantee
+  // the position of the trigger element and may end up pointing the beak at the wrong element.
+  .vd-popover-tether-pinned & {
+    display: none;
+  }
+}
+
+.vd-popover-container--modal {
+  display: block;
+
+  .vd-popover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    border: none;
+    box-shadow: none;
+  }
+
+  .vd-dialog-container {
+    padding: 0;
+  }
+
+  .vd-dialog-content {
+    margin: 0;
+    padding: 0;
+  }
+}

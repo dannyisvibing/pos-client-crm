@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Generate by name",
+    "entity": "by-name"
+  },
+  {
+    "name": "Generate by Sequence Number",
+    "entity": "by-number"
+  }
+]

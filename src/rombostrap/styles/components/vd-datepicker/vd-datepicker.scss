@@ -1,0 +1,317 @@
+.vd-datepicker-ui {
+  display: block;
+}
+
+// Spacer is used to offset the height of the no end date checkbox in the end date section
+// That way the datepickers in both start and end date align
+.vd-datepicker-range-no-end-spacer {
+  height: $vd-datepicker-range-no-end-height;
+}
+
+.vd-datepicker-range-no-end-disabled {
+  @include disabled;
+  pointer-events: none;
+}
+
+.vd-datepicker-range-input-container {
+  .vd-datepicker-range-input {
+    cursor: pointer;
+    margin: 0;
+  }
+}
+
+.vd-datepicker-data-inputs {
+  display: flex;
+  width: $vd-datepicker-data-inputs-width;
+
+  .vd-datepicker-date-input {
+    flex: 2;
+
+    &.vd-has-time-input {
+      border-radius: $vd-datepicker-date-input-border-radius;
+    }
+  }
+
+  .vd-datepicker-time-input {
+    flex: 1;
+    border-radius: $vd-datepicker-time-input-border-radius;
+  }
+}
+
+.vd-datepicker-group {
+  display: flex;
+  justify-content: space-between;
+  margin: -$vd-datepicker-padding;
+
+  @include vd-viewport-media-max(small) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.vd-datepicker-group-item {
+  padding: $vd-datepicker-padding;
+
+  &:first-child {
+    border-right: $vd-datepicker-border;
+
+    @include vd-viewport-media-max(small) {
+      border-right: none;
+      border-bottom: $vd-datepicker-border;
+    }
+  }
+
+  .vd-datepicker-ui {
+     margin-top: 22px;
+  }
+}
+
+.vd-datepicker-group-footer {
+  padding: ($vd-datepicker-padding / 3) $vd-datepicker-padding;
+}
+
+.vd-datepicker-group-summary {
+  margin: ($vd-datepicker-padding / 3);
+  margin-left: 0;
+}
+
+// Common styles for both range and single date pickers
+.vd-datepicker,
+.vd-datepicker-range {
+  @include vd-reset;
+  font-size: $vd-datepicker-font-size;
+
+  table, caption, tbody, tfoot, thead, tr, th, td, abbr {
+    margin: initial;
+    padding: initial;
+    border: initial;
+    line-height: initial;
+    border-collapse: initial;
+    background: initial;
+    color: initial;
+    font-weight: initial;
+    text-align: initial;
+  }
+
+  .pika-table {
+    margin-top: $vd-datepicker-table-spacing * 2;
+
+    tbody:before {
+      content: " ";
+      display: block;
+      margin-top: $vd-datepicker-table-spacing;
+    }
+
+    td {
+      padding-right: $vd-datepicker-table-spacing / 2;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    th {
+      padding-right: $vd-datepicker-table-spacing / 2;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    abbr {
+      font-weight: $vd-font-weight--bold;
+    }
+  }
+
+  .pika-title {
+    position: relative;
+    text-align: center;
+
+    .pika-label {
+      display: inline-block;
+      visibility: hidden;
+
+      &:nth-child(even) {
+        &:before {
+          @include vd-datepicker-select-arrow-common;
+          border-bottom: $vd-datepicker-select-arrow-border;
+          right: $vd-datepicker-select-icon-position-right-even;
+        }
+
+        &:after {
+          @include vd-datepicker-select-arrow-common;
+          border-top: $vd-datepicker-select-arrow-border;
+          top: $vd-datepicker-select-icon-position-top;
+          right: $vd-datepicker-select-icon-position-right-even;
+        }
+      }
+
+      &:nth-child(odd) {
+        &:before {
+          @include vd-datepicker-select-arrow-common;
+          border-bottom: $vd-datepicker-select-arrow-border;
+          right: $vd-datepicker-select-icon-position-right-odd;
+        }
+
+        &:after {
+          @include vd-datepicker-select-arrow-common;
+          border-top: $vd-datepicker-select-arrow-border;
+          top: $vd-datepicker-select-icon-position-top;
+          right: $vd-datepicker-select-icon-position-right-odd;
+        }
+      }
+    }
+
+    .pika-select {
+      @include vd-select;
+      padding-right: 12px;
+      visibility: visible;
+    }
+
+    .pika-select-month {
+      @include vd-datepicker-select-common;
+      width: 110px;
+      left: $vd-datepicker-select-horizontal-positioning;
+    }
+
+    .pika-select-year {
+      @include vd-datepicker-select-common;
+      width: 72px;
+      right: $vd-datepicker-select-horizontal-positioning;
+    }
+
+    .pika-prev,
+    .pika-next {
+      position: absolute;
+      overflow: hidden;
+    }
+
+    .pika-prev {
+      left: -5px;
+      width: $vd-datepicker-next-prev-button-width;
+      visibility: hidden;
+      cursor: pointer;
+
+      &:before {
+        @include next-prev-arrow-common;
+        transform: rotate(225deg);
+      }
+
+      &.is-disabled {
+        &:before {
+          @include next-prev-arrow-common--disabled;
+        }
+      }
+    }
+
+    .pika-next {
+      right: -5px;
+      width: $vd-datepicker-next-prev-button-width;
+      visibility: hidden;
+      cursor: pointer;
+
+      &:before {
+        @include next-prev-arrow-common;
+        transform: rotate(45deg);
+      }
+
+      &.is-disabled {
+        &:before {
+          @include next-prev-arrow-common--disabled;
+        }
+      }
+    }
+  }
+
+  .is-disabled {
+    pointer-events: none;
+  }
+
+  .is-inrange {
+    background-color: $vd-datepicker-range-colour;
+
+    .pika-button {
+      background-color: $vd-datepicker-range-colour;
+      border-radius: 0;
+
+      &:hover {
+        border-radius: $vd-datepicker-button-radius;
+      }
+    }
+  }
+
+  .is-startrange {
+    background-image: linear-gradient(to right, transparent 50%, $vd-datepicker-range-colour 50%);
+  }
+
+  .is-endrange {
+    background-image: linear-gradient(to right, $vd-datepicker-range-colour 50%, transparent 50%);
+  }
+
+  .is-selected.is-startrange.is-endrange {
+    background-image: none;
+  }
+
+  td.is-disabled {
+    filter: grayscale(100%);
+    opacity: $vd-disabled-opacity;
+  }
+
+  .pika-button {
+    font-size: $vd-datepicker-font-size;
+    cursor: pointer;
+    background: $vd-datepicker-background;
+    width: $vd-datepicker-button-size;
+    height: $vd-datepicker-button-size;
+    border: none;
+    border-radius: $vd-datepicker-button-radius;
+    padding: 3px;
+
+    &:hover {
+      background: transparentize(vd-colour(do), 0.65);
+    }
+  }
+
+  .is-today .pika-button {
+    color: vd-colour(do);
+    font-weight: $vd-font-weight--bold;
+  }
+
+  .is-startrange,
+  .is-endrange {
+    .pika-button {
+      border: 2px solid vd-colour(do);
+      background: $vd-datepicker-range-colour;
+    }
+  }
+
+  .is-selected .pika-button {
+    background: vd-colour(do);
+    color: vd-colour(box);
+    font-weight: $vd-font-weight--bold;
+    border: none;
+  }
+}
+
+.vd-datepicker-range-no-end {
+  .is-startrange, .is-endrange {
+    .pika-button {
+      border: none;
+    }
+  }
+
+  .vd-datepicker-end-picker {
+    .is-startrange, .is-endrange {
+      .pika-button {
+        background: $vd-datepicker-range-colour;
+        color: vd-colour(text);
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+// this will only affect the single instance date picker
+.vd-datepicker {
+  padding-top: $vd-datepicker-select-vertical-positioning;
+}

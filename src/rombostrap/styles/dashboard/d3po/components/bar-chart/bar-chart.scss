@@ -1,0 +1,16 @@
+.dp-bar-chart {
+    display: block;
+  
+    .dp-axis.dp-x {
+      .tick text {
+        display: none;
+      }
+    }
+  
+    // ----- Bar ----- //
+  
+    .dp-bar {
+      fill: vd-colour(supplementary);
+    }
+  }
+  

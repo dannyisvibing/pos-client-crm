@@ -1,0 +1,16 @@
+.vd-link {
+  color: $vd-colour-text-link;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color $vd-time-s;
+
+  &:visited { color: $vd-colour-text-link; }
+  &:hover { text-decoration: underline; }
+}
+
+.vd-link--secondary {
+  color: currentColor !important; // required important to override a tag styles set in vd-table
+  text-decoration: underline !important; // required to override base a:link
+
+  &:hover { color: $vd-colour-text-link !important; } // required important to override a tag styles set in vd-table
+}

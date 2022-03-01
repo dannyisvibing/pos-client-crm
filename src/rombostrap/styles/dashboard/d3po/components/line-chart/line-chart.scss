@@ -1,0 +1,45 @@
+.dp-line-chart {
+    display: block;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  
+    // ----- Line Path ----- //
+  
+    .dp-line {
+      fill: transparent;
+      stroke-width: 2px;
+      stroke: vd-colour(keyline);
+    }
+  
+    .dp-line-0 {
+      stroke: vd-colour(supplementary);
+    }
+  
+    .dp-line-label {
+      @include vd-text(mini-signpost);
+      fill: vd-colour(keyline);
+    }
+  
+    // ----- Area Shape ----- //
+  
+    .dp-area {
+      fill-opacity: 0.1;
+    }
+  
+    .dp-area-0 {
+      stroke: vd-colour(supplementary);
+    }
+  
+    // ----- Line Plot Points ----- //
+  
+    .dp-plot-point {
+      fill: vd-colour(do);
+      stroke: vd-colour(box);
+      stroke-width: 2px;
+    }
+  
+    .dp-plot-point--hidden {
+      r: 1;
+      opacity: 0;
+    }
+  }
+  

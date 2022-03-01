@@ -1,0 +1,46 @@
+.vd-select-group {
+  display: flex;
+  align-items: center;
+
+  .vd-select-container {
+    width: auto;
+  }
+
+  .vd-input {
+    margin-left: 0;
+    margin-right: 0;
+    flex: 1;
+  }
+
+  .vd-input, .vd-select {
+    position: relative;
+
+    &:focus {
+      z-index: $vd-select-input-group-focused-zindex;
+    }
+  }
+
+  .vd-input:not(:first-child) {
+    @include remove-border-radius-left();
+    margin-left: -1px;
+  }
+
+  .vd-select-container:not(:first-child) {
+    margin-left: -1px;
+
+    .vd-select {
+      @include remove-border-radius-left();
+    }
+  }
+
+  .vd-input:not(:last-child),
+  .vd-select-container:not(:last-child) .vd-select {
+    @include remove-border-radius-right();
+  }
+
+  .vd-input, .vd-select-container:not(:last-child) {
+    &.vd-error {
+      z-index: $vd-select-input-group-with-error-zindex;
+    }
+  }
+}

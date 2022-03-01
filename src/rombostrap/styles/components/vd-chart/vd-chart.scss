@@ -1,0 +1,107 @@
+.chart {
+    .bg {fill: #FAFAFA;}
+}
+.line-chart {
+    .dot {
+        stroke-width: 2px;
+        fill: #009D12;
+        stroke: #fff;
+    }
+
+    .axis {
+        path, line {
+            fill: none;
+            stroke: none;
+            shape-rendering: crispEdges;
+        }
+
+        text {
+            font-size: 11px;
+            fill: #B5B5B5;
+        }
+    }
+
+    .xaxis {
+        path {stroke-width: 1px;}
+    }
+
+    .x {
+        &.axis {
+            .tick {fill: #B5B5B5;}
+        }
+    }
+    
+    .y {
+        &.axis {
+            .tick {
+                &:first-of-type {display: none;}
+            }
+        }
+    }
+
+    .line {
+        stroke: #009D12;
+        stroke-width: 1.5px;
+        fill: transparent;
+    }
+
+    .fill {
+        fill: #009D12;
+        opacity: .1;
+        stroke-width: 0;
+    }
+
+    .bar {
+        fill: #009D12;
+        stroke-width: 1px;
+    }
+
+    .horizontalGrid {
+        stroke-dasharray: 4,2;
+        &:first-of-type, &:last-of-type {stroke-dasharray: none;}
+        &:first-of-type {stroke: #d7d7d7;}
+    }
+
+    .overlay {fill: transparent;}
+
+}
+
+.x-axis-background {fill: #FFF;}
+.sparkline {
+    padding-bottom: 0;
+    .line {
+        stroke-width: 1px;
+    }        
+}
+
+.bar-chart {
+    .y {
+        &.axis {
+            .domain {
+                stroke: none;
+                display: none;
+            }
+
+            text {
+                font-size: 14px;
+                fill: #76A27B;
+            }
+        }
+    }
+
+    .bar {
+        fill: #009D12;
+        opacity: .15;
+    }
+
+    .top {fill: #009D12;}
+
+    .bar-label {
+        font-size: 13px;
+        fill: #959595;
+    }    
+}
+
+.bar-chart-background {
+	fill: #F2F2F2;
+}

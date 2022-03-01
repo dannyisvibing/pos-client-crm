@@ -1,0 +1,81 @@
+.vd-segcontrol {
+  &:first-of-type .vd-segcontrol-button {
+    border-left: vd-border(framing, $vd-segcontrol-stroke-width);
+    border-radius: $vd-border-radius 0 0 $vd-border-radius;
+  }
+
+  &:last-of-type .vd-segcontrol-button {
+    border-radius: 0 $vd-border-radius $vd-border-radius 0;
+    border-right: vd-border(framing, $vd-segcontrol-stroke-width);
+  }
+
+  position: relative;
+  display: flex;
+  text-align: center;
+}
+
+.vd-segcontrol--stretched {
+  width: 100%;
+}
+
+.vd-segcontrol--selected {
+  .vd-segcontrol-button {
+    border-color: vd-colour(do) !important;
+    z-index: 3;
+  }
+}
+
+.vd-segcontrol:not(.vd-segcontrol--selected):not(.vd-segcontrol--disabled):hover {
+  .vd-segcontrol-input:not(:disabled) ~ .vd-segcontrol-button {
+    z-index: 2;
+    border-color: vd-colour(keyline);
+    cursor: pointer;
+  }
+}
+
+.vd-segcontrol + .vd-segcontrol .vd-segcontrol-button {
+  margin-left: -$vd-segcontrol-stroke-width;
+}
+
+.vd-segcontrol-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: vd-colour(box);
+  padding: vd-grid-unit(4) vd-grid-unit(5);
+  border: vd-border(framing, $vd-segcontrol-stroke-width);
+  color: vd-colour(text);
+  width: 100%;
+  transition-duration: $vd-time-s;
+  transition-property: background, border;
+}
+
+.vd-segcontrol-input {
+  visibility: hidden;
+  position: absolute;
+
+  &:checked + .vd-segcontrol-button {
+    color: vd-colour(text);
+  }
+
+  &:disabled + .vd-segcontrol-button {
+    @include disabled();
+
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+// Putting this at the bottom, so wins specificity wars.
+.vd-segcontrol:active .vd-segcontrol-input + .vd-segcontrol-button {
+  background-color: rgba(vd-colour(box), 0.2);
+  box-shadow: 0 0 $vd-shadow-blur $vd-shadow-spread rgba(vd-colour(box), $vd-shadow-opacity);
+}
+
+.vd-segcontrol--panel {
+  width: 100%;
+  margin-left: vd-grid-unit(5);
+
+  &:first-of-type { margin-left: 0; }
+}

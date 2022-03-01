@@ -1,0 +1,74 @@
+$tooltip-z-index: 7;
+$colour-dove-gray: #626262;
+$color-silver-chalice: #178ce5;
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    z-index: $tooltip-z-index;
+    background-color: $colour-curious-blue;
+    color: $colour-white;
+    padding: 6px;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 5px;
+    width: 100%;
+    left: -6px;
+    box-shadow: 0 0 2px $colour-dove-gray;
+
+    &:before {
+        box-shadow: -1px 1px 1px $color-silver-chalice;
+        background-color: $colour-curious-blue;
+        width: 10px;
+        height: 10px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        display: inline-block;
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 47.5%;
+    }
+
+    &.bottom {
+        top: 100%;
+        bottom: initial;
+
+        &:before {
+            box-shadow: 1px -1px 1px $color-silver-chalice;
+            bottom: initial;
+            top: -4px;
+        }
+    }
+}
+
+.tooltip--warning {
+    background-color: $colour-burnt-sienna;
+
+    &:before {
+        background-color: $colour-burnt-sienna;
+    }
+}
+
+.tooltip--info {
+    background-color: $colour-white;
+    color: $colour-tundora;
+
+    &:before {
+        background-color: $colour-white;
+    }
+}
+
+.tooltip--in-field {
+    opacity: 0;
+    left: 145px;
+    padding: 6px 20px 8px 20px;
+    height: auto;
+    width: auto;
+    max-width: 500px;
+}
+
+.tooltip--in-field--show {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}

@@ -1,0 +1,12 @@
+$vd-time-s: .2s !default;
+$vd-time-m: .5s !default;
+$vd-time-l: .8s !default;
+$vd-time-xl: 1s !default;
+
+@mixin vd-slow-rotate {
+  animation: vd-rotate $vd-time-xl ease-in-out infinite;
+}
+
+@mixin vd-fade-in {
+  animation: vd-fade-in $vd-time-m ease-in-out;
+}

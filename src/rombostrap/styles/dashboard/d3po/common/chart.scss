@@ -1,0 +1,55 @@
+$dp-tick-text-axis-top-offset: 7px;
+// ----- Shared Axis Styles ----- //
+
+.dp-axis {
+  .tick text {
+    @include vd-text(mini-copy);
+    fill: vd-colour(text);
+  }
+
+  .dp-tick-text {
+    @include vd-text(mini-copy);
+    @include vd-text-clamp();
+
+    height: inherit;
+    width: 100%;
+    padding-top: $dp-tick-text-axis-top-offset;
+
+    color: vd-colour(text);
+    text-align: center;
+  }
+}
+
+// ----- X Axis ----- //
+
+.dp-axis.dp-x {
+  .domain {
+    display: none;
+  }
+}
+
+// ----- Y Axis ----- //
+
+.dp-axis.dp-y {
+  .domain {
+    display: none;
+  }
+}
+
+// ----- Y Axis Grid ----- //
+
+.dp-grid.dp-y {
+  .domain {
+    display: none;
+  }
+
+  .tick line {
+    stroke: vd-colour(framing);
+    stroke-width: 1px;
+    fill: transparent;
+  }
+
+  .dp-grid-zero-tick line {
+    stroke: vd-colour(keyline);
+  }
+}

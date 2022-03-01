@@ -1,0 +1,14 @@
+$vd-dialog-spacing: 32px;
+$vd-dialog-spacing--mobile: 16px;
+
+$breakpoints: xlarge, large, medium, small;
+$container-sizes-per-breakpoint: 1100px, 800px, 600px, 480px;
+$vd-dialog-container-sizes: zip($breakpoints, $container-sizes-per-breakpoint);
+$vd-dialog-container-top-offset: 60px;
+$vd-dialog-container-min-height: 170px;
+$vd-dialog-container-focus-colour: #008ae8;
+
+$vd-dialog-header-sub-padding: 5px;
+$vd-dialog-header-divider-width: 40px;
+$vd-dialog-header-margin: 20px;
+

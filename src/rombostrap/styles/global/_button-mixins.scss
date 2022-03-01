@@ -1,0 +1,122 @@
+@mixin vd-disabled() {
+  &:disabled,
+  &.disabled,
+  &:disabled:hover,
+  &[disabled] {
+    cursor: default;
+    pointer-events: none;
+
+    @content;
+  }
+}
+
+@mixin vd-enabled() {
+  &:not(:disabled) {
+    @content;
+  }
+}
+
+@mixin vd-button--borderless($primary-colour, $secondary-colour: vd-colour(box)) {
+  background: transparent;
+  border: $vd-button-stroke-width solid transparent;
+
+  &:focus  { box-shadow: 0 0 $vd-shadow-blur $vd-shadow-spread rgba($primary-colour, $vd-shadow-opacity); }
+
+  &.vd-button--table {
+    padding: 0;
+    font-size: $vd-font-size--section-header;
+    color: inherit;
+
+    @include vd-disabled { @include disabled(); }
+  }
+
+  @include vd-disabled { @include disabled(); }
+
+  @include vd-enabled {
+    &:hover,
+    &:active {
+      border-color: $primary-colour;
+      background-color: $primary-colour;
+      color: $secondary-colour;
+
+      &.vd-button--subtle {
+        border-color: $vd-border-colour;
+        background-color: transparent;
+        color: $primary-colour;
+      }
+
+      &.vd-button--table {
+        border-color: transparent;
+        background-color: transparent;
+        color: $primary-colour;
+      }
+    }
+  }
+}
+
+@mixin vd-button--solid($primary-colour, $secondary-colour: vd-colour(text, dark)) {
+  background-color: $primary-colour;
+  color: $secondary-colour;
+
+  &:focus  {
+    box-shadow:
+      0 0 0px $vd-shadow-spread rgba(vd-colour(box), 0.8),
+      0 0 $vd-shadow-blur #{$vd-shadow-spread+1} rgba($primary-colour, $vd-shadow-opacity),
+      0 0 0px #{$vd-shadow-spread+1} rgba($primary-colour, 0.6);
+
+    border: $vd-button-stroke-width solid $primary-colour;
+  }
+
+  @include vd-disabled {
+    @include disabled();
+  }
+
+  &:hover  { background-color: lighten($primary-colour, $vd-button-percentage-light); }
+
+  &:active {
+    background-color: darken($primary-colour, $vd-button-percentage-dark);
+    box-shadow: 0 0 $vd-shadow-blur $vd-shadow-spread rgba($primary-colour, $vd-shadow-opacity);
+    border-color: $primary-colour;
+  }
+
+  &.vd-button--text {
+    @include vd-button--borderless($primary-colour, $secondary-colour);
+    color: $primary-colour;
+  }
+
+  &.vd-button--icon {
+    @include vd-button--borderless($primary-colour, $secondary-colour);
+    padding: 12px 14px;
+    color: vd-colour(supplementary);
+    min-width: 0;
+
+    &.vd-button--big { padding: vd-grid-unit(4) vd-grid-unit(5); }
+  }
+}
+
+@mixin vd-button--panel($primary-colour) {
+  background-color: vd-colour(box);
+  border-color: $primary-colour;
+  color: $primary-colour;
+
+  @include vd-button--panel-action-styles($primary-colour);
+}
+
+@mixin vd-button--panel-action-styles($primary-colour) {
+  &:focus  {
+    border-color: $primary-colour;
+    box-shadow: 0 0 3px $primary-colour;
+  }
+
+  &:hover  {
+    border-color: lighten($primary-colour, $vd-button-percentage-light);
+    background-color: lighten(vd-colour(box), $vd-button-percentage-light);
+    box-shadow: 0 0 $vd-shadow-blur $vd-shadow-spread rgba($primary-colour, $vd-shadow-opacity);
+    border-color: $primary-colour;
+  }
+
+  &:active {
+    border-color: darken($primary-colour, $vd-button-percentage-dark);
+    background-color: darken(vd-colour(box), $vd-button-percentage-dark);
+  }
+}

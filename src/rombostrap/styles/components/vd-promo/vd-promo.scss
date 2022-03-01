@@ -1,0 +1,81 @@
+
+// Promo
+.vd-promo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  padding: $vd-promos-spacing;
+  text-align: center;
+  font-family: $vd-font-lato;
+}
+
+.vd-promo-headline {
+  @include vd-promo-headline;
+  margin: $vd-promos-spacing 0;
+}
+
+.vd-promo-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: $vd-promo-image-container-min-height;
+}
+
+.vd-promo-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.vd-promo-intro {
+  @include vd-line-height(25, 15);
+  font-size: $vd-font-size--body-content;
+  margin: 0;
+}
+
+
+// Promo Full Width
+.vd-promo--full {
+  flex-basis: 100%;
+  justify-content: flex-start;
+  flex-direction: row;
+
+  text-align: left;
+
+  @include vd-viewport-media-max(small) {
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  .vd-promo-content {
+    padding: 0 vd-grid-unit(5);
+    align-self: center;
+  }
+
+  .vd-promo-headline {
+    margin-top: 0;
+
+    @include vd-viewport-media-max(small) {
+      margin: $vd-promos-spacing 0;
+    }
+  }
+
+  .vd-promo-image-container {
+    flex-shrink: 0;
+  }
+}
+
+// Promo Greyscale
+.vd-promo--disabled {
+  filter: grayscale(100%);
+  opacity: 0.35;
+}
+
+// Promo Image Restrained
+.vd-promo-image--restrained {
+  width: 110px;
+}

@@ -1,0 +1,102 @@
+.input-row {
+  margin-bottom: 10px;
+  min-height: 24px;
+
+  .toggle-btn {
+      float: left;
+      width: auto;
+  }
+
+  .small {
+      width: 75px;
+  }
+
+  .input-row input {
+      width: 150px;
+  }
+
+  label {
+      display: inline-block;
+      width: 140px;
+      margin-right: 10px;
+      height: 24px;
+      line-height: 24px;
+  }
+
+  select {
+      &.wide {
+          width: 235px;
+      }
+  }
+
+  .wide {
+      width: 235px;
+  }
+
+  .split {
+      width: 115px;
+
+      &:first-child {
+          margin-left: 0;
+      }
+
+      &:last-child {
+          margin-left: 5px;
+      }
+
+      &.day, &.month {
+          width: 35px !important;
+      }
+
+      &.month {
+          margin-left: 5px;
+      }
+
+      &.year {
+          width: 60px !important;
+      }
+  }
+
+  .radio_list {
+      margin-top: 4px;
+
+      label {
+          font-weight: 400;
+          line-height: 15px;
+          width: auto;
+          padding: 1px 0 0;
+          margin: 0 20px 0 0;
+      }
+  }
+
+  &.contains-checkbox {
+      .field {
+          margin-top: 3px;
+
+          input {
+              margin-right: 8px;
+              margin-top: 4px;
+          }
+      }
+  }
+
+  input[type=checkbox]+.help {
+      display: inline-block;
+      font-size: 14px;
+      padding: 0;
+      color: #333;
+  }
+
+  input[type=checkbox]+.snug {
+      padding: 0;
+      width: auto;
+      height: auto;
+      font-size: 12px;
+      font-weight: 400;
+  }
+
+  input[type=checkbox], input[type=radio] {
+      float: left;
+      width: auto;
+  }
+}

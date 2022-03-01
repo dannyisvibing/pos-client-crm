@@ -1,0 +1,69 @@
+$vd-breakpoint-xlarge-min: 1201px;
+$vd-breakpoint-large: 1200px;
+$vd-breakpoint-large-min: 1001px;
+$vd-breakpoint-medium: 1000px;
+$vd-breakpoint-medium-min: 769px;
+$vd-breakpoint-small: 768px;
+$vd-breakpoint-small-min: 481px;
+$vd-breakpoint-xsmall: 480px;
+
+$vd-viewport-screen: only screen;
+$vd-viewport-em-small: 40em;
+$vd-viewport-em-medium-min: 40.0625em;
+$vd-viewport-em-medium: 64em;
+$vd-viewport-em-large-min: 64.0625em;
+$vd-viewport-em-large: 90em;
+$vd-viewport-em-xlarge-min: 90.0625em;
+$vd-viewport-em-xlarge: 120em;
+$vd-viewport-em-xxlarge-min: 120.0625em;
+$vd-viewport-em-xxlarge: 6249999.9375em;
+
+$vd-viewport-identifier-map: (
+    id: 'vd-viewport-identifier',
+    pseudoElement: before,
+    IEContentProp: 'vd-content'
+);
+
+$vd-viewport-ranges-map: (
+    xsmall: (
+        max: $vd-breakpoint-xsmall
+    ),
+    small: (
+        min: $vd-breakpoint-small-min,
+        max: $vd-breakpoint-small
+    ),
+    medium: (
+        min: $vd-breakpoint-medium-min,
+        max: $vd-breakpoint-medium
+    ),
+    large: (
+        min: $vd-breakpoint-large-min,
+        max: $vd-breakpoint-large
+    ),
+    xlarge: (
+        min: $vd-breakpoint-xlarge-min
+    )
+);
+
+$vd-viewport-em-ranges-map: (
+    small: (
+        min: null,
+        max: $vd-viewport-em-small
+    ),
+    medium: (
+        min: $vd-viewport-em-medium-min,
+        max: $vd-viewport-em-medium
+    ),
+    large: (
+        min: $vd-viewport-em-large-min,
+        max: $vd-viewport-em-large
+    ),
+    xlarge: (
+        min: $vd-viewport-em-xlarge-min,
+        max: $vd-viewport-em-xlarge
+    ),
+    xxlarge: (
+        min: $vd-viewport-em-xxlarge-min,
+        max: $vd-viewport-em-xxlarge
+    )
+)

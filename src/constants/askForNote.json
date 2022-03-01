@@ -1,0 +1,14 @@
+[
+  {
+    "nam": "Never",
+    "entity": "never"
+  },
+  {
+    "nam": "On Save / Layby / Account / Return",
+    "entity": "on-some"
+  },
+  {
+    "nam": "On all sales",
+    "entity": "on-all"
+  }
+]

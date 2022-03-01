@@ -1,0 +1,76 @@
+.vd-suggestions-popover {
+  .vd-popover-content {
+    // The 40px is the approximate distance between the middle of the triggering component and the start of the list
+    // This max-height is updated via JavaScript after the list is rendered
+    max-height: calc(50vh - 40px);
+
+    // There is a bug in Safari where max-height is broken when used with flex-direction: column. As a workaround we
+    // set the flex-direction to row and set .vd-suggestion-list-container to width:100%.
+    // See https://github.com/philipwalton/flexbugs/issues/188 for more details.
+    flex-direction: row;
+  }
+}
+
+.vd-suggestion-badge {
+  margin-top: -$vd-id-badge-spacing-sm;
+  margin-bottom: -$vd-id-badge-spacing-sm;
+}
+
+.vd-suggestion-list-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .vd-scrollable-goatee {
+    bottom: $vd-suggestion-list-footer-height;
+  }
+
+  .vd-suggestion-list--with-footer {
+    .vd-scrollable {
+      margin-bottom: $vd-suggestion-list-footer-height;
+    }
+  }
+}
+
+.vd-suggestion--footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $vd-suggestion-list-footer-height;
+  box-sizing: border-box;
+  background-color: vd-colour(box);
+  border-top: vd-border(framing);
+}
+
+.vd-suggestion-query-container {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+}
+
+.vd-suggestion-query-container--center {
+  justify-content: center;
+}
+
+.vd-suggestion-query {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.vd-suggestion--footer-clear {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vd-suggestion-clear {
+  margin-right: -$vd-popover-list-item-spacing !important;
+
+  &.vd-suggestion-clear--active {
+    @extend .vd-button.vd-button--secondary:hover;
+  }
+}

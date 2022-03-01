@@ -1,0 +1,157 @@
+/// Range based content control; between a min and max width.
+///
+/// @mixin vd-viewport-media-only
+///
+/// @param  {String|Map} $_viewport
+///         The viewport range key (such as xsmall, large) or a map consisting of the custom min and max sizes.
+///         The custom min or max sizes can also be passed a viewport range key.
+///
+/// @example
+///   @include vd-viewport-media-only(medium) {
+///     background-color: #C0FFEE;
+///   }
+///
+///   @include vd-viewport-media-only((min: 100px, max: 200px)) {
+///     background-color: #BAFF1E;
+///   }
+///
+///   @include vd-viewport-media-only((min: small, max: medium)) {
+///     background-color: #0FF1CE;
+///   }
+///
+///   @include vd-viewport-media-only((min: 250px, max: large)) {
+///     background-color: #FACADE;
+///   }
+///
+@mixin vd-viewport-media-only ($_viewport) {
+  $_viewport-min-width: null;
+  $_viewport-max-width: null;
+
+  @if (type-of($_viewport) == 'string') {
+    // Known viewport range provided, e.g. xsmall
+    $_viewport-min-width: get-viewport-px-width($_viewport, "min");
+    $_viewport-max-width: get-viewport-px-width($_viewport, "max");
+  } @else if (type-of($_viewport) == 'map') {
+    // Custom min and max range values provided
+    @if (map-has-key($_viewport, 'min') and map-has-key($_viewport, 'max')) {
+      $_custom-min: map-get($_viewport, 'min');
+      $_custom-max: map-get($_viewport, 'max');
+
+      // Determine if we have a valid number with a css measurement unit
+      @if (type-of($_custom-min) == 'number' and unitless($_custom-min)) {
+        @error '[vd-viewport-media-only] Unitless min range value provided.';
+      }
+
+      @if (type-of($_custom-max) == 'number' and unitless($_custom-max)) {
+        @error '[vd-viewport-media-only] Unitless max range value provided.';
+      }
+
+      // Determine if a named viewport has been provided for the min and max widths
+      @if (type-of($_custom-min) == 'string') {
+        $_custom-min: get-viewport-px-width($_custom-min, "min");
+      }
+
+      @if (type-of($_custom-max) == 'string') {
+        $_custom-max: get-viewport-px-width($_custom-max, "max");
+      }
+
+      $_viewport-min-width: $_custom-min;
+      $_viewport-max-width: $_custom-max;
+    } @else {
+      @error '[vd-viewport-media-only] Missing min or max range value.';
+    }
+  }
+
+  $_viewport-media-range: "(min-width: #{$_viewport-min-width}) and (max-width: #{$_viewport-max-width})";
+
+  @if ($_viewport-min-width == null) {
+    $_viewport-media-range: "(max-width: #{$_viewport-max-width})";
+  }
+
+  @if ($_viewport-max-width == null) {
+    $_viewport-media-range: "(min-width: #{$_viewport-min-width})";
+  }
+
+  @media #{$vd-viewport-screen} and #{$_viewport-media-range} {
+    @content;
+  }
+}
+
+/// Ascending content control.
+///
+/// @mixin vd-viewport-media-min
+///
+/// @param  {String|Number} $_viewport-range-min
+///         The viewport range key to be used to obtain the min width from (such as large), or a specific number and a
+///         css measurement unit.
+///
+/// @example
+///   @include vd-viewport-media-min (large) {
+///     background-color: #C0FFEE;
+///   }
+///
+///   @include vd-viewport-media-min (250px) {
+///     background-color: #C0FFEE;
+///   }
+///
+@mixin vd-viewport-media-min ($_viewport-range-min) {
+  $_media-min-width: null;
+  $_viewport-media-range: null;
+
+  @if (type-of($_viewport-range-min) == 'string') {
+    $_media-min-width: get-viewport-px-width($_viewport-range-min, "min");
+    @if ($_media-min-width == null) {
+      @error '[vd-viewport-media-min] Specified viewport range does not have a min range value. Use vd-viewport-media-max instead.';
+    }
+  } @else {
+    @if (unitless($_viewport-range-min)) {
+      @error '[vd-viewport-media-min] Unitless range value provided.';
+    }
+
+    $_media-min-width: $_viewport-range-min;
+  }
+
+  @media #{$vd-viewport-screen} and
+    (min-width: $_media-min-width) {
+      @content;
+    }
+}
+
+/// Descending content control.
+///
+/// @mixin vd-viewport-media-max
+///
+/// @param  {String|Number} $_viewport-range-max
+///         The viewport range key to be used to obtain the max width from (such as large), or a specific number and a
+///         css measurement unit.
+///
+/// @example
+///   @include vd-viewport-media-max (large) {
+///     background-color: #C0FFEE;
+///   }
+///
+///   @include vd-viewport-media-max (250px) {
+///     background-color: #C0FFEE;
+///   }
+@mixin vd-viewport-media-max ($_viewport-range-max) {
+  $_media-max-width: null;
+  $_viewport-media-range: null;
+
+  @if (type-of($_viewport-range-max) == 'string') {
+    $_media-max-width: get-viewport-px-width($_viewport-range-max, "max");
+    @if ($_media-max-width == null) {
+      @error '[vd-viewport-media-max] Specified viewport range does not have a max range value. Use vd-viewport-media-min instead.';
+    }
+  } @else {
+    @if (unitless($_viewport-range-max)) {
+      @error '[vd-viewport-media-max] Unitless range value provided.';
+    }
+
+    $_media-max-width: $_viewport-range-max;
+  }
+
+  @media #{$vd-viewport-screen} and
+    (max-width: $_media-max-width) {
+      @content;
+    }
+}

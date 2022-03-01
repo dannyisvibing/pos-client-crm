@@ -1,0 +1,47 @@
+.vd-sidebar-drawer {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: $vd-sidebar-drawer-desktop-width;
+  height: 100%;
+  background-color: $vd-sidebar-drawer-background-color;
+  border-right: 1px solid vd-colour(framing);
+  box-sizing: border-box;
+
+  .vd-nav-item {
+    width: 100%;
+    height: auto;
+    color: vd-colour(text);
+    font-weight: $vd-font-weight--bold;
+
+    &:hover {
+      background: vd-colour(background);
+    }
+  }
+
+  .vd-nav-item-action {
+    padding: $vd-sidebar-drawer-item-padding-y $vd-sidebar-drawer-item-padding-x;
+  }
+
+  .vd-nav-item--active {
+    color: vd-colour(supplementary);
+  }
+
+  .vd-nav-item--pending {
+    color: vd-colour(supplementary--text);
+  }
+
+  // @todo Make this a mixin for all disabled things.
+  .vd-nav-item--disabled {
+    opacity: 0.35;
+    filter: grayscale(100%);
+
+    &:hover {
+      background-color: inherit;
+    }
+  }
+
+  .vd-nav-item-label {
+    font-size: $vd-sidebar-drawer-item-font-size;
+  }
+}

@@ -1,0 +1,155 @@
+.table {
+    background-color: vd-colour(background);
+    border: 1px solid $colour-alto;
+    border-radius: 5px;
+    border-spacing: 0;
+    font-size: 14px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.table--light {
+    .table-row--even {
+        background-color: $colour-white;
+    }
+}
+
+.table-head {
+    background-color: vd-colour(box);
+
+    .table-cell {
+        border-bottom: 1px solid vd-colour(keyline);
+
+        a {
+            text-decoration: none;
+            white-space: nowrap;
+        }
+    }
+}
+
+.table-head--sections {
+    background-color: vd-colour(framing);
+    border-bottom: 1px solid vd-colour(keyline);
+}
+
+.table-head--light {
+    background-color: $colour-white;
+}
+
+.table-cell-secondary-content {
+    color: $colour-silver-chalice;
+    padding-left: 10px;
+}
+
+.table-row {
+    background-color: vd-colour(box);
+
+    &:hover {
+        background-color: $vd-colour-table-tr-hover-background;
+    }
+}
+
+.table-row,
+.vd-table tr {
+    .tooltip {
+        display: none;
+    }
+
+    &:hover {
+        .tooltip {
+            display: block;
+            max-width: 250px;
+            left: 0;
+            font-size: 12px;
+        }
+    }
+}
+
+.table-row--even {
+    background-color: vd-colour(background);
+}
+
+.table-row--completed {
+    color: $colour-chateau-green;
+}
+
+.table-row--warning {
+    color: $colour-burnt-sienna;
+}
+
+.table-row--disabled {
+    color: $colour-silver-chalice;
+}
+
+.table-cell {
+    padding: 15px;
+    vertical-align: top;
+    position: relative;
+
+    a {
+        text-decoration: none;
+        color: $colour-azure-radiance;
+    }
+}
+
+.table-cell--division {
+    border-left: 1px solid $colour-alto;
+}
+
+.table-cell--checkbox {
+    padding: 0 7px 0 22px;
+    width: 1%;
+    vertical-align: middle;
+}
+
+.table-cell--checkbox-fixed {
+    @extend .table-cell--checkbox;
+
+    width: 50px;
+}
+
+.table-cell--right-aligned {
+    text-align: right;
+}
+
+.table-cell--center-aligned {
+    text-align: center;
+}
+
+.table-cell--tight {
+    width: 1%;
+}
+
+.table-cell--small {
+    width: 13%;
+}
+
+.table-cell--long {
+    width: 50%;
+}
+
+.table-cell--icon {
+    width: 3.5%;
+    padding: 0 0 0 10px;
+    vertical-align: middle;
+}
+
+.table-cell--warning {
+    color: $colour-burnt-sienna;
+}
+
+.table-cell--success {
+    color: $colour-chateau-green;
+}
+
+.table-cell--section {
+    padding: 10px;
+    font-size: 12px;
+    text-align: center;
+}
+
+// Row variations that override cells
+.table-head--large > .table-cell {
+    padding-top: 18px;
+    padding-bottom: 18px;
+}

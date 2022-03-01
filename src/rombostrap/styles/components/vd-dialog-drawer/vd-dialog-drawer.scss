@@ -1,0 +1,22 @@
+.vd-dialog-drawer-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom:0;
+  box-sizing: border-box;
+  width: $vd-dialog-drawer-width;
+  background: vd-colour(box);
+  display: flex;
+  flex-direction: column;
+  // Enables default click events for the container child elements
+  pointer-events: auto;
+
+  &:focus {
+    outline: 1px solid $vd-dialog-container-focus-colour;
+  }
+
+  @include vd-viewport-media-max(xsmall) {
+    width: 100%;
+    min-width: inherit;
+  }
+}

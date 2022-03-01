@@ -1,0 +1,91 @@
+
+// Colors
+$vd-colour-warning: #E8BC34;
+$vd-colour-primary: #41AF48;
+$vd-colour-text-warning: #E8BC34;
+
+$vd-header-bgcolor: #3a4953 !global;
+$vd-default-color: #f0f4f4 !global;
+$vd-info-color: #007fdc !global;
+$vd-success-color: #4fbe5a !global;
+$vd-disabled-color: #f8f8f8;
+$vd-warning-color: #e6643c !global;
+$vd-page-header-color: #fff !global;
+$vd-page-content-color: linear-gradient(to right,#E5EAED 0,#E5EAED 85px,#FFF 85px,#FFF 145px) !global;
+$selected-color: #669280;
+$vd-default-gradient: linear-gradient(to bottom, rgba(245,245,245,1) 0%, rgba(238,238,238,1) 100%) !global;
+$vd-colour-overlay: rgba(0,0,0,.35);
+
+// Table
+
+// keyline was #008ae8
+$vd-main-colors: (
+    text: #3a4953,
+    do: #41AF48,
+    box: #fff,
+    framing: #E5EAED,
+    supplementary--text: #959595,
+    supplementary: #6692B0,
+    no: #e6643c,
+    keyline: #BECBCF,
+    background: #f0f4f4,
+    disable: #d7d7d7,
+    shadow: rgba(0,0,0,.35),
+    go: #008ae8,
+    positive: #34ad42
+);
+
+// Fonts
+$vd-default-fontfamily: lato,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+$vd-default-font-size: 15px;
+$vd-primary-sidebar-font-size: 12px;
+$vd-secondary-sidebar-font-size: 13px;
+$vd-colour-text-link: #008ae8;
+
+$vd-header-height: 50px !global;
+$vd-sidebar-width: 85px !global;
+$vd-secondary-sidebar-width: 145px !global;
+
+$content-side-padding-lg: 300px !global;
+$content-side-padding-sm: 100px !global;
+
+// Section
+$vd-top-nav-height: 50px;
+
+//
+$vd-border-radius: 3px;
+$vd-shadow-spread: 2px;
+
+// Seg controls
+
+// Input
+$vd-colour-text-negative: #e6643c;
+$vd-colour-input-error-border: #e6643c;
+$vd-colour-input-hover-border: #008ae8;
+$vd-input-message-margin: 8px;
+$vd-input-icon-padding: 35px;
+$vd-input-icon-position-h: 10px;
+// $vd-input-padding: 36px;
+$vd-select-caret-width: 5px;
+$vd-input-padding: 12px;
+$vd-input-border-width: 1px;
+
+// z-index
+$vd-z-index-content-base: 100;
+$vd-z-index-navigation-base: 200;
+$vd-modals-z-index: 410;
+
+// Opacity
+$vd-disabled-opacity: .35;
+$vd-shadow-opacity: .35;
+
+// Field
+$vd-settings-explanation-width: 240px;
+
+// Checkbox
+$vd-colour-tertiary: #606060;
+
+// Other
+$vd-shadow-blur: 3px;
+$vd-grid-row-gutter-large: 24;
+$vd-box-shadow: 0 6px 10px rgba(0,0,0,.35);

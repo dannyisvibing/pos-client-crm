@@ -1,0 +1,49 @@
+
+.vd-page-report-layout {
+    .row {
+        &:before, &:after {
+            content: " ";
+            display: table;
+        }
+
+        &:after {
+            clear: both;
+        }
+
+        margin: 0 auto;
+        padding: 1em 70px;
+        max-width: none;
+        width: auto;
+    }
+
+    .report-type-row {
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+
+    .report-control-options {
+        float: left;
+    }
+
+    .report-control-actions {
+        padding-top: 18px;
+        float: right;
+    }
+
+    .display-option-row {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .datatable-container {
+        min-height: 540px;
+    }
+
+    .report-type-heading {
+        font-size: 36px;
+        color: #404040;
+        vertical-align: middle;
+        font-weight: 400;
+    }
+
+}

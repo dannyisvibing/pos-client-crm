@@ -1,0 +1,19 @@
+@include vd-colour-set-theme(dark);
+
+.vd-popover--tooltip {
+  border-color: vd-colour(framing);
+  background-color: vd-colour(box);
+  color: vd-colour(text);
+
+  .vd-popover-content {
+    background-color: vd-colour(box);
+    padding: $vd-tooltip-spacing;
+  }
+
+  .vd-popover-beak {
+    background-color: vd-colour(box);
+    border-color: vd-colour(framing);
+  }
+}
+
+@include vd-colour-reset-theme();

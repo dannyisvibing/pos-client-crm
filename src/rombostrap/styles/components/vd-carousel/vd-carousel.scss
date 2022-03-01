@@ -1,0 +1,118 @@
+vd-carousel {
+  display: flex;
+  flex-direction: column;
+}
+
+.vd-carousel-frame-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow: hidden;
+  flex: 1;
+}
+
+@keyframes vd-slide-in-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes vd-slide-out-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
+@keyframes vd-slide-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+vd-carousel-frame {
+  display: flex;
+  flex: 1 0 100%;
+  order: 2;
+  visibility: hidden;
+
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+.vd-carousel-frame-content {
+  flex: 1 1 0;
+}
+
+.vd-carousel-frame-transition-left,
+.vd-carousel-frame-transition-right {
+  visibility: visible;
+  order: 1;
+}
+
+.vd-carousel-frame-active {
+  visibility: visible;
+  order: 0;
+
+  &.vd-carousel-frame-transition-left {
+    animation-name: vd-slide-in-left;
+  }
+
+  &.vd-carousel-frame-transition-right {
+    animation-name: vd-slide-right;
+  }
+}
+
+.vd-carousel-frame-transition-left:not(.vd-carousel-frame-active) {
+  animation-name: vd-slide-out-left;
+}
+
+.vd-carousel-frame-transition-right:not(.vd-carousel-frame-active) {
+  animation-name: vd-slide-right;
+}
+
+.vd-carousel-paginator {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: vd-colour(box);
+  height: 72px;
+}
+
+.vd-carousel-paginator-paddle {
+  width: 45px;
+  font-size: 18px;
+}
+
+.vd-carousel-paginator-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vd-carousel-paginator-indicator {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: vd-colour(keyline);
+  }
+}
+
+.vd-carousel-paginator-indicator--active::before {
+  background-color: vd-colour(do);
+}

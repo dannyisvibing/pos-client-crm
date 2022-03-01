@@ -1,0 +1,20 @@
+$ds-chart-tooltip-padding: 8px;
+
+.ds-chart-tooltip {
+  // Disable pointer events so mouse events fall through to the Chart Canvas
+  // This means we can trigger mouse events even if the cursor is hovered on
+  // top of a tooltip element.
+  pointer-events: none;
+  min-width: 120px;
+}
+
+.ds-chart-tooltip-keyline {
+  border-color: vd-colour(keyline, dark);
+  border-style: solid;
+  margin-left: -$ds-chart-tooltip-padding;
+  margin-right: -$ds-chart-tooltip-padding;
+}
+
+.ds-chart-tooltip-color {
+  color: vd-colour(keyline, dark);
+}

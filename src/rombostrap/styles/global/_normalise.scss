@@ -1,0 +1,11 @@
+body {
+  @include vd-reset();
+
+  padding: 0;
+  margin: 0;
+  background-color: vd-colour(background);
+}
+
+a:link {
+  text-decoration: none;
+}

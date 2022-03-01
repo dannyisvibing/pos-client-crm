@@ -1,0 +1,16 @@
+.vd-dropdown-input {
+    cursor: default;
+  
+    &::placeholder {
+      user-select: none;
+    }
+  }
+  
+  .vd-dropdown-input-container {
+    @include vd-input-error-selectors () {
+      .vd-dropdown-input {
+        @include vd-input-error-styles();
+      }
+    }
+  }
+  

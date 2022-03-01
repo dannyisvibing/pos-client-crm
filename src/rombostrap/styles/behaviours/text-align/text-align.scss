@@ -1,0 +1,39 @@
+$aligns: left, right, center, justify;
+
+@mixin text-align($viewport, $type) {
+    @each $align in $aligns {
+        @if ($viewport != null) {
+            @if ($type == 'only') {
+                .#{$viewport}-only-text-#{$align} {
+                    text-align: $align !important;
+                }
+            } @else {
+                .#{$viewport}-text-#{$align} {
+                    text-align: $align !important;
+                }
+            }
+        } @else {
+            .text-#{$align} {
+                text-align: $align !important;
+            }
+        }
+    }
+}
+
+@include text-align(null, null);
+
+@each $viewport, $size in $vd-viewport-em-ranges-map {
+    @include vd-viewport-media-only ($size) {
+        @include text-align($viewport, 'only');
+    }
+
+    @if ($viewport == 'small') {
+        @media only screen {
+            @include text-align($viewport, null);            
+        }
+    } @else {
+        @include vd-viewport-media-min (map-get($size, 'min')) {
+            @include text-align($viewport, null);
+        }
+    }
+}

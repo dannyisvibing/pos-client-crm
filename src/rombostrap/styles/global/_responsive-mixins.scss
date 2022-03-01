@@ -1,0 +1,81 @@
+ ///
+ /// =======================================
+ /// Responsive Mixin
+ /// ⚠️ @warning DEPRECATED. Please use the viewport media mixins in global/viewport/_viewport-media-mixins
+ /// =======================================
+ ///
+
+// Exclusive breakpoints
+@mixin mobile {
+  @media only screen and (max-width: $vd-breakpoint-xsmall) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media only screen and (min-width: $vd-breakpoint-small-min) and (max-width: $vd-breakpoint-small) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media only screen and (min-width: $vd-breakpoint-medium-min) and (max-width: $vd-breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $vd-breakpoint-large-min) and (max-width: $vd-breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media only screen and (min-width: $vd-breakpoint-xlarge-min) {
+    @content
+  }
+}
+
+// Inclusive range going up
+@mixin min-tablet-portrait {
+  @media only screen and (min-width: $vd-breakpoint-small-min) {
+    @content;
+  }
+}
+
+@mixin min-tablet-landscape {
+  @media only screen and (min-width: $vd-breakpoint-medium-min) {
+    @content;
+  }
+}
+
+@mixin min-desktop {
+  @media only screen and (min-width: $vd-breakpoint-xlarge-min) {
+    @content;
+  }
+}
+
+// Inclusive range going down
+@mixin max-desktop {
+  @media only screen and (max-width: $vd-breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin max-tablet-landscape {
+  @media only screen and (max-width: $vd-breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin max-tablet-portrait {
+  @media only screen and (max-width: $vd-breakpoint-small) {
+    @content;
+  }
+}
+
+@mixin max-mobile {
+  @media only screen and (max-width: $vd-breakpoint-xsmall) {
+    @content;
+  }
+}

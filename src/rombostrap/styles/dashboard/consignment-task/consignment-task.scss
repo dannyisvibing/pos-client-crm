@@ -1,0 +1,13 @@
+.ds-consignment-task-header {
+  @include vd-text(signpost);
+  border-bottom: 2px solid vd-colour(text);
+}
+
+.ds-consignment-task-name {
+  @include vd-text(sub-heading);
+  margin-bottom: vd-grid-unit(4);
+}
+
+.ds-consignment-task-name--finalised {
+  text-decoration: line-through;
+}

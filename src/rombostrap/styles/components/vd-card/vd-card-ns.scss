@@ -1,0 +1,9 @@
+$vd-card-border-radius: 5px;
+$vd-card-framing: 2px;
+$vd-card-spacing: 5px;
+
+@mixin vd-card() {
+  border: vd-border(framing, $vd-card-framing);
+  background-color: vd-colour(box);
+  border-radius: $vd-card-border-radius;
+}

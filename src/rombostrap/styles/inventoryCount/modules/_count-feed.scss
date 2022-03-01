@@ -1,0 +1,64 @@
+$count-feed-z-index: 6;
+$count-feed-title: 45px;
+$count-feed-content-padding: 10px 14px;
+
+.count-feed-container {
+    position: relative;
+}
+
+.count-feed-title,
+.count-feed {
+    position: fixed;
+    right: 0;
+    width: 20%;
+    border-left: 1px solid $colour-alto;
+}
+
+.count-feed {
+    bottom: 0;
+    background-color: vd-colour(framing);
+    z-index: $count-feed-z-index;
+    overflow: auto;
+    padding-top: $count-feed-title;
+}
+
+.count-feed-item {
+    padding: $count-feed-content-padding;
+    background-color: $colour-alabaster;
+    border-bottom: 1px solid $colour-alto;
+}
+
+.count-feed-title {
+    @include vd-text(label);
+    padding: 14px;
+    border-bottom: 1px solid $colour-alto;
+    background-color: vd-colour(background);
+    z-index: 1;
+}
+
+.ic-highligh-feed {
+    animation-name: ic-highlight-feed;
+    animation-duration: $vd-time-l;
+}
+
+@keyframes ic-highlight-feed {
+    0%   { background-color: vd-colour-highlight(go, box); }
+    40%   { background-color: vd-colour-highlight(go, box); }
+    100% { background-color: vd-colour(box); }
+}
+
+.count-feed-info {
+    font-size: 14px;
+    background-color: transparent;
+    text-align: center;
+    line-height: 20px;
+    padding: 30px 10%;
+}
+
+.count-feed-quantity {
+    margin: 0 10px 0 0;
+}
+
+.count-feed-undo {
+    float: right;
+}

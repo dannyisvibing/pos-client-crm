@@ -1,0 +1,40 @@
+.vd-select-container--inline {
+  display: inline-block;
+  position: relative;
+
+  &::before, &::after {
+    display: none;
+  }
+
+  .vd-select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: inherit;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+}
+
+.vd-select-inline {
+  display: inline-flex;
+  align-self: baseline;
+}
+
+.vd-select-inline--placeholder {
+  color: vd-colour(supplementary);
+}
+
+.vd-select-inline-text {
+  pointer-events: none;
+  text-decoration: underline;
+}
+
+.vd-select-inline-chevron {
+  font-size: 0.5em;
+  padding-left: 0.1em;
+  align-self: center;
+  pointer-events: none;
+}

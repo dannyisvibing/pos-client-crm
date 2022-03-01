@@ -1,0 +1,64 @@
+
+.wr-media--center {
+    align-items: center;
+}
+
+.wr-media {
+    display: flex;
+    align-items: flex-start;
+
+    .wr-media-body {
+        overflow: hidden;
+    }
+
+    .wr-media-object {
+        margin-right: 10px;
+        flex-shrink: 0;
+    }
+}
+
+.wr-settings-item-summary {
+    padding-right: 40px;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+}
+
+.wr-qk-layouts {
+    margin-top: 20px;
+}
+
+.wr-qk-layout {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFF;
+    padding: 24px 20px;
+    border: 1px solid #E5EAED;
+    margin-bottom: 20px;
+    min-height: 90px;
+}
+
+.wr-qk-layout-about {
+    max-width: 50%;
+}
+
+.wr-quick-keys {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+
+    .vd-quick-keys {
+        flex: 1;
+    }
+}
+
+.edit-qk-layout-workspace {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.edit-qk-layout-panel-layout {
+    padding-top: 25px;
+}

@@ -1,0 +1,126 @@
+$ds-period-selector-width: 410px;
+$ds-outlet-selector-width: 450px;
+$ds-top-bar-filler-height: 40px;
+$ds-header-filters-spacing: $ds-global-spacing;
+
+.ds-top-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.ds-top-bar-container-mobile {
+  display: none;
+}
+
+.ds-top-bar-container {
+  &, .vd-section-container { background: vd-colour(background); }
+
+  .ds-header-wide {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .ds-header-short {
+    display: none;
+  }
+
+  &.vd-section--fixed {
+    &, .vd-section-container {
+      background: vd-colour(box);
+      transition: background $vd-time-l 0s ease-out;
+    }
+
+    .ds-header-short {
+      @include vd-text(heading);
+
+      display: block;
+    }
+
+    .ds-top-bar {
+      align-items: center;
+    }
+
+    .ds-header-wide {
+      display: none;
+    }
+  }
+}
+
+.ds-header {
+  @include vd-text(hero);
+
+  line-height: normal;
+  position: relative;
+}
+
+.ds-filters {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {clear: both;}
+}
+
+.ds-period-selector {
+  display: flex;
+  max-width: $ds-period-selector-width;
+
+  .vd-segcontrol-button {
+    text-transform: capitalize;
+  }
+}
+
+.ds-outlet-selector {
+  flex: 1;
+  max-width: $ds-outlet-selector-width;
+}
+
+@include vd-viewport-media-max(xsmall) {
+  .ds-top-bar-filler,
+  .ds-top-bar-container {
+    display: none;
+  }
+
+  .ds-top-bar-container-mobile {
+    display: block;
+    padding-bottom: 0;
+
+    .vd-select-inline--placeholder {
+      color: vd-colour(text);
+    }
+  }
+}
+
+@include vd-viewport-media-max(medium) {
+  .ds-top-bar-filler {
+    height: $ds-top-bar-filler-height;
+  }
+
+  .ds-top-bar-container {
+    .ds-header-wide {
+      bottom: $ds-header-filters-spacing;
+    }
+
+    .ds-filters {
+      justify-content: space-between;
+    }
+
+    &.vd-section--fixed {
+      .ds-header {
+        display: none;
+      }
+
+      .ds-filters {
+          margin-top: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.ds-number-card.ds-badge-metric-card {
+  justify-content: flex-start;
+}
+
+.ds-badge-metric {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: vd-grid-unit(2);
+}
+
+.ds-badge-metric-value {
+  margin-left: vd-grid-unit(6);
+  padding-top: vd-grid-unit(2);
+}

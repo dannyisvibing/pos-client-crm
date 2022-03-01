@@ -1,0 +1,43 @@
+// ===================================     [100] Content     ======================================================== //
+
+// Any content with an explicit position
+$vd-z-index-content-base: 100 !default;
+
+
+
+// ===================================     [200] Navigation     ===================================================== //
+
+// Top navigation, side navigation and level 2 actions (fixed action bars)
+$vd-z-index-navigation-base: $vd-z-index-content-base * 2 !default;
+
+// @deprecated - use $vd-z-index-navigation-base
+$vd-z-index-base: $vd-z-index-navigation-base !default;
+
+
+
+// ===================================     [300] Popovers     ======================================================= //
+
+// Search results, drop downs, selects, tooltips, date pickers, etc
+$vd-z-index-popover-base: $vd-z-index-content-base * 3 !default;
+
+$vd-popover-z-index: $vd-z-index-popover-base !default;
+
+
+
+// ===================================     [400] Modals     ========================================================= //
+
+// Splashes, dialogs, etc
+$vd-z-index-modal-base: $vd-z-index-content-base * 4 !default;
+
+$vd-modals-z-index: $vd-z-index-modal-base + 10 !default; // 410
+
+$vd-popover-inside-modal-z-index: $vd-modals-z-index + 10 !default; // 420
+
+
+
+// ===================================     [500] Toasts     ========================================================= //
+
+// Toast notifications etc
+$vd-z-index-toast-base: $vd-z-index-content-base * 5 !default;
+
+$vd-toast-notification-z-index: $vd-z-index-toast-base !default;

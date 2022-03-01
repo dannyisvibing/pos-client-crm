@@ -1,0 +1,43 @@
+$color-apple: vd-colour(positive);
+$color-silver-chalice: #adadad;
+
+.icon-css-loader {
+    display: inline-block;
+    align-self: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid $color-apple;
+    border-left-color: transparent;
+    -webkit-animation: animate-loader-simple-spin 1s ease-in-out infinite;
+    animation: animate-loader-simple-spin 1s ease-in-out infinite;
+}
+
+.icon-css-loader--small {
+    width: 16px;
+    height: 16px;
+    border-color: $color-silver-chalice;
+    border-left-color: transparent;
+}
+
+@-webkit-keyframes animate-loader-simple-spin {
+    0% {
+        transform: rotate(1deg);
+        -webkit-transform: rotate(1deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes animate-loader-simple-spin {
+    0% {
+        transform: rotate(1deg);
+        -webkit-transform: rotate(1deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}

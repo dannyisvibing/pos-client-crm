@@ -1,0 +1,37 @@
+{
+  "identifier": {
+    "id": "'vd-viewport-identifier'",
+    "pseudoElement": "'before'",
+    "IEContentProp": "'vd-content'"
+  },
+  "ranges": {
+    "xsmall": {
+      "range": {
+        "max": 480
+      }
+    },
+    "small": {
+      "range": {
+        "min": 481,
+        "max": 768
+      }
+    },
+    "medium": {
+      "range": {
+        "min": 769,
+        "max": 1000
+      }
+    },
+    "large": {
+      "range": {
+        "min": 1001,
+        "max": 1200
+      }
+    },
+    "xlarge": {
+      "range": {
+        "min": 1201
+      }
+    }
+  }
+}

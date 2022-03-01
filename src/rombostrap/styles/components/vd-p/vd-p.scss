@@ -1,0 +1,17 @@
+.vd-p {
+  display: block;
+  margin-bottom: vd-grid-unit(5);
+  margin-top: 0;
+  line-height: 1.5;
+
+  &:last-child { margin-bottom: 0; }
+}
+
+@include vd-viewport-media-max(small) {
+  .vd-p {
+    .vd-flex--settings-explanation & {
+      // Removing the margin bottom of the explanation paragraph, as the field will be covering the vertical spacing.
+      margin-bottom: 0;
+    }
+  }
+}

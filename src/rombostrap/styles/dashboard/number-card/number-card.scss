@@ -1,0 +1,8 @@
+.ds-number-card {
+  justify-content: space-between;
+
+  .ds-card-header {
+    @include vd-text(signpost);
+    border-bottom: 2px solid vd-colour(text);
+  }
+}

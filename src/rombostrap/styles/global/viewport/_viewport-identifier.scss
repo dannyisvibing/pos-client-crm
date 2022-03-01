@@ -1,0 +1,37 @@
+// Viewport identifier
+//
+// Use this element in conjuction with the vdWindowDelegateService to determine the
+// current viewport. Element is added to the DOM by the service if not already present. See _viewport-data.scss for
+// interpolated values.
+##{map-get($vd-viewport-identifier-map, 'id')} {
+  position: absolute;
+  z-index: -1;
+
+  top: 0;
+  left: 0;
+
+  width: 0;
+  height: 0;
+
+  visibility: hidden;
+  overflow: hidden;
+
+  &::#{map-get($vd-viewport-identifier-map, 'pseudoElement')} {
+    visibility: hidden;
+  }
+
+  // Iterate through the viewport ranges map and generate the pseudo element content
+  @each $_vd-viewport in map-keys($vd-viewport-ranges-map) {
+    $_vd-viewport-content: quote($_vd-viewport);
+
+    @include vd-viewport-media-only ($_vd-viewport) {
+      &::#{map-get($vd-viewport-identifier-map, 'pseudoElement')} {
+        content: $_vd-viewport-content;
+      }
+
+      // Proprietary property name. Support for window getComputedStyle pseudo-element is only >= IE11. For older IE's
+      // we can use element.getCurrentStyle('vd-content').
+      #{map-get($vd-viewport-identifier-map, 'IEContentProp')}: $_vd-viewport-content;
+    }
+  }
+}

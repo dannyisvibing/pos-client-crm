@@ -1,0 +1,5 @@
+.vd-modals-container {
+  @include vd-reset;
+  position: absolute;
+  z-index: $vd-modals-z-index;
+}

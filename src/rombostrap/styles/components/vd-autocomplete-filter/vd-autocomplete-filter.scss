@@ -1,0 +1,68 @@
+$vd-autocomplete-filter-select-border-radius: $vd-border-radius 0 0 $vd-border-radius;
+$vd-autocomplete-filter-select-padding: 12px;
+$vd-autocomplete-filter-selector-container-width: 130px;
+$vd-autocomplete-filter-select-padding-left: 34px;
+$vd-autocomplete-filter-input-border-radius: 0px $vd-border-radius $vd-border-radius 0px;
+$vd-autocomplete-filter-icon-margin: 14px;
+
+.vd-autocomplete-filter {
+  display: block;
+
+  @include vd-input-error-selectors () {
+    vd-autocomplete-multi {
+      @include vd-input-error-styles();
+    }
+  }
+}
+
+.vd-autocomplete-filter-input-container {
+  display: flex;
+  align-items: flex-start;
+
+  .vd-select {
+    padding-left: $vd-autocomplete-filter-select-padding-left;
+    border-radius: $vd-autocomplete-filter-select-border-radius;
+    // Currently the default select / input border is 1px, the aim is to move this to two. At that point the border
+    // right of the select in this component would need to be half that so it would look like it shares a border with
+    // its neighbour.  For now this has no affect as the min measure is 1px. This goes for all of the following border
+    // overrides
+    border-right: vd-border(framing, $vd-input-border-width / 2);
+    transition: none;
+  }
+
+  .vd-lozenge-group {
+    border-radius: $vd-autocomplete-filter-input-border-radius;
+    border-left: vd-border(framing, $vd-input-border-width / 2);
+  }
+
+  vd-autocomplete-multi {
+    width: 100%;
+    transition: none;
+  }
+}
+
+.vd-autocomplete-selector-container {
+  flex-basis: $vd-autocomplete-filter-selector-container-width;
+  flex-shrink: 0;
+}
+
+.vd-autocomplete-select-placeholder {
+  @include vd-input-states();
+  border-right: vd-border(framing, $vd-input-border-width / 2);
+  border-radius: $vd-autocomplete-filter-select-border-radius;
+  padding: $vd-autocomplete-filter-select-padding;
+  padding-left: $vd-autocomplete-filter-select-padding-left;
+  text-transform: capitalize;
+}
+
+.vd-autocomplete-filter-icon {
+  position: absolute;
+  z-index: 1;
+  margin-left: $vd-autocomplete-filter-icon-margin;
+  margin-top: $vd-autocomplete-filter-icon-margin;
+  color: vd-colour(supplementary);
+}
+
+.vd-autocomplete-filter-button-label {
+  text-transform: capitalize;
+}

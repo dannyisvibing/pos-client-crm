@@ -1,0 +1,20 @@
+.vd-body {
+  display: flex;
+  flex-flow: row wrap;
+  // @todo: this should probably be directly on the `body` element
+  height: 100vh;
+}
+
+.vd-body--no-scroll {
+  overflow: hidden;
+}
+
+// Use height 100% on iOS as 100vh is the height of the viewport after you've scrolled down the page enough for the
+// browser chrome to hide itself - this never happens as we've moved the overflow from the window to vd-main-content.
+.vd-is-ios {
+  &,
+  body,
+  .vd-body {
+    height: 100%;
+  }
+}
